@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101D32">
+    <title>Organisation | Polizei NRP</title>
+
+    <style>
+        :root {
+            --navy: #101D32;
+            --navy-light: #192B46;
+            --gold: #D5B66C;
+            --light: #F1F3F6;
+            --muted: #647084;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--navy);
+        }
+
+        header {
+            background: var(--navy);
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .brand {
+            font-size: 23px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            color: var(--gold);
+        }
+
+        nav {
+            display: flex;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        .hero {
+            background: linear-gradient(120deg, var(--navy), #263D5B);
+            color: white;
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .hero small {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 5vw, 50px);
+            margin: 20px 0;
+        }
+
+        .hero p {
+            color: #D5DCE6;
+            line-height: 1.7;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+            padding: 65px 6%;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .heading small {
+            color: #9B7B36;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .heading h2 {
+            font-size: 30px;
+            margin: 12px 0;
+        }
+
+        .heading p {
+            color: var(--muted);
+        }
+
+        .departments {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 22px;
+        }
+
+        .department {
+            background: white;
+            padding: 28px;
+            border-radius: 5px;
+            border-top: 3px solid var(--gold);
+            box-shadow: 0 5px 18px rgba(16,29,50,.06);
+        }
+
+        .department h3 {
+            font-size: 21px;
+            margin-bottom: 13px;
+        }
+
+        .department p {
+            color: var(--muted);
+            line-height: 1.6;
+            font-size: 14px;
+            min-height: 67px;
+        }
+
+        .leader {
+            border-top: 1px solid #E5E9EF;
+            margin-top: 20px;
+            padding-top: 16px;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .leader strong {
+            color: var(--navy);
+        }
+
+        .notice {
+            margin-top: 40px;
+            background: #E5E9EF;
+            border-left: 4px solid var(--gold);
+            padding: 22px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #0A1424;
+            color: #AAB4C3;
+            text-align: center;
+            padding: 30px 7%;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 15px;
+            }
+
+            main {
+                padding: 45px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">POLIZEI <span>NRP</span></div>
+
+    <nav>
+        <a href="index.html">Startseite</a>
+        <a href="organisation.html" class="active">Organisation</a>
+        <a href="dienstgrade.html">Dienstgrade</a>
+        <a href="nachrichten.html">Nachrichten</a>
+        <a href="karriere.html">Karriere</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <small>Unsere Struktur</small>
+    <h1>Die Organisation</h1>
+    <p>
+        Die Polizei NRP besteht aus verschiedenen Abteilungen
+        mit unterschiedlichen Aufgaben und Zuständigkeiten.
+        Gemeinsam bilden sie eine organisierte Polizeistruktur.
+    </p>
+</section>
+
+<main>
+    <div class="heading">
+        <small>Abteilungen</small>
+        <h2>Unsere sieben Bereiche</h2>
+        <p>Die organisatorische Übersicht der Polizei NRP.</p>
+    </div>
+
+    <div class="departments">
+
+        <article class="department">
+            <h3>SEK</h3>
+            <p>
+                Spezialisierte Abteilung für besondere Einsatzlagen
+                innerhalb des Rollenspiels.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Kriminalpolizei</h3>
+            <p>
+                Zuständig für Ermittlungen, die Bearbeitung von
+                Kriminalfällen und die Auswertung von Hinweisen.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Zivilpolizei</h3>
+            <p>
+                Übernimmt zivile Aufgaben und besondere
+                Beobachtungs- und Ermittlungsaufträge im RP.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Ausbildungsabteilung</h3>
+            <p>
+                Verantwortlich für die Ausbildung, Betreuung
+                und Weiterentwicklung neuer Polizeikräfte.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Polizeileitung</h3>
+            <p>
+                Verantwortlich für die Führung, Organisation
+                und strategische Ausrichtung der Polizei NRP.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Verwaltung</h3>
+            <p>
+                Kümmert sich um organisatorische Abläufe,
+                Personalangelegenheiten und interne Verwaltung.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+        <article class="department">
+            <h3>Personenschutz</h3>
+            <p>
+                Zuständig für den Schutz und die Begleitung
+                bestimmter Personen innerhalb des Rollenspiels.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
+
+    </div>
+
+    <div class="notice">
+        <strong>Hinweis:</strong>
+        Die dargestellten Leitungspositionen sind zunächst Platzhalter.
+        Die tatsächlichen Namen und Funktionen werden später ergänzt.
+    </div>
+</main>
+
+<footer>
+    <strong>POLIZEI NRP</strong><br>
+    Sicherheit. Ordnung. Verantwortung.<br><br>
+    <a href="impressum.html">Impressum</a>
+    &nbsp; | &nbsp;
+    <a href="datenschutz.html">Datenschutz</a>
+    <br><br>
+    © 2026 Polizei NRP – Rollenspielprojekt
+</footer>
+
+</body>
+</html>
