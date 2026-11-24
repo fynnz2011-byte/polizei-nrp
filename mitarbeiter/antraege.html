@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zugangsanträge | Polizei NRP</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #f1f3f6;
+}
+
+header {
+    background: #101d32;
+    border-bottom: 2px solid #d5b66c;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+header h1 { margin: 0; font-size: 22px; }
+header p { color: #d5b66c; margin: 5px 0 0; }
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h2 {
+    color: #d5b66c;
+}
+
+.description {
+    color: #b9c3d0;
+    line-height: 1.5;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.stat {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.stat strong {
+    display: block;
+    color: #d5b66c;
+    font-size: 28px;
+    margin-top: 8px;
+}
+
+.panel {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+.empty {
+    color: #aab5c3;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.notice {
+    background: #172941;
+    border-left: 3px solid #d5b66c;
+    padding: 15px;
+    margin-top: 25px;
+    color: #cbd3de;
+    line-height: 1.5;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #d5b66c;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8997a9;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    .container { padding: 20px 14px; }
+    .panel { padding: 16px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="../logo.jpg" alt="Polizei NRP Logo">
+    <div>
+        <h1>Polizei NRP</h1>
+        <p>Verwaltung – Zugangsanträge</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <h2>Zugangsanträge</h2>
+    <p class="description">
+        Hier werden künftig alle Anträge für den internen
+        Mitarbeiterbereich angezeigt und durch die Leitung bearbeitet.
+    </p>
+
+    <section class="stats">
+        <div class="stat">
+            Offene Anträge
+            <strong id="openCount">–</strong>
+        </div>
+
+        <div class="stat">
+            Genehmigte Anträge
+            <strong id="approvedCount">–</strong>
+        </div>
+
+        <div class="stat">
+            Abgelehnte Anträge
+            <strong id="rejectedCount">–</strong>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h3>Offene Anträge</h3>
+        <div class="empty">
+            <p>Es sind noch keine Anträge abrufbar.</p>
+            <p>Die Verbindung zum Antragssystem wird eingerichtet.</p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h3>Bearbeitete Anträge</h3>
+        <div class="empty">
+            <p>Hier erscheinen später genehmigte und abgelehnte Anträge.</p>
+        </div>
+    </section>
+
+    <div class="notice">
+        <strong>Systemstatus:</strong>
+        Die Antragsverwaltung ist noch nicht mit dem Backend verbunden.
+        Die angezeigten Bereiche sind derzeit nur eine Vorschau.
+        Es werden noch keine Anträge gespeichert oder Entscheidungen ausgeführt.
+    </div>
+
+    <a class="back" href="verwaltung.html">
+        Zurück zur Verwaltung
+    </a>
+
+</main>
+
+<footer>
+    Polizei NRP – Sicherheit. Ordnung. Verantwortung.
+</footer>
+
+</body>
+</html>
