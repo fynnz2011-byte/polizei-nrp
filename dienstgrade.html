@@ -2,151 +2,296 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dienstgrade | Polizei NRP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dienstgrade | Polizei NRP</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+* { box-sizing: border-box; }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #101D32;
-            color: #F1F3F6;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #F1F3F6;
+}
 
-        header {
-            background: #0B1526;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-bottom: 2px solid #D5B66C;
-        }
+header {
+    background: #09182B;
+    padding: 16px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 2px solid #D5B66C;
+}
 
-        header img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
+header strong {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+}
 
-        header strong {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 20px;
-        }
+header img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+}
 
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
 
-        nav a {
-            color: #F1F3F6;
-            text-decoration: none;
-            font-size: 14px;
-        }
+nav a {
+    color: #F1F3F6;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-        nav a:hover {
-            color: #D5B66C;
-        }
+nav a:hover { color: #D5B66C; }
 
-        .hero {
-            text-align: center;
-            padding: 55px 20px 35px;
-        }
+.hero {
+    text-align: center;
+    padding: 45px 20px 30px;
+}
 
-        .hero h1 {
-            color: #D5B66C;
-            font-size: 34px;
-        }
+.hero h1 {
+    font-size: 34px;
+    color: #D5B66C;
+    margin-bottom: 10px;
+}
 
-        .hero p {
-            color: #C5CBD4;
-        }
+.hero p { color: #BFC9D8; }
 
-        main {
-            max-width: 1100px;
-            margin: auto;
-            padding: 20px;
-        }
+main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px;
+}
 
-        .rank-group {
-            margin-bottom: 40px;
-        }
+.rank-group {
+    margin: 30px 0 45px;
+}
 
-        .rank-group h2 {
-            color: #D5B66C;
-            border-bottom: 1px solid #D5B66C;
-            padding-bottom: 12px;
-            margin-bottom: 18px;
-        }
+.group-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    color: #E6C36F;
+    font-size: 23px;
+    text-align: center;
+}
 
-        .ranks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 16px;
-        }
+.group-title::before,
+.group-title::after {
+    content: "";
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #D5B66C);
+    flex: 1;
+}
 
-        .rank {
-            background: #192A43;
-            border: 1px solid #34445B;
-            border-radius: 10px;
-            padding: 20px;
-        }
+.group-title::after {
+    background: linear-gradient(90deg, #D5B66C, transparent);
+}
 
-        .rank h3 {
-            margin: 0 0 8px;
-            color: #D5B66C;
-            font-size: 19px;
-        }
+.ranks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    gap: 18px;
+}
 
-        .rank p {
-            margin: 5px 0;
-            color: #D5DAE2;
-            font-size: 14px;
-        }
+.rank-card {
+    border: 1px solid #263B56;
+    background: linear-gradient(145deg, #10233D, #0B192D);
+    border-radius: 10px;
+    padding: 20px 10px;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+    transition: .2s;
+}
 
-        .abbreviation {
-            display: inline-block;
-            background: #263A56;
-            color: #D5B66C;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
+.rank-card:hover {
+    border-color: #D5B66C;
+    transform: translateY(-4px);
+    background: #172B45;
+}
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            margin-top: 40px;
-            background: #0B1526;
-            color: #AEB8C7;
-            font-size: 13px;
-        }
+.rank-card h3 {
+    font-size: 16px;
+    margin: 12px 0 5px;
+    color: #F1F3F6;
+}
 
-        @media (max-width: 600px) {
-            header {
-                justify-content: center;
-            }
+.rank-card p {
+    color: #D5B66C;
+    font-size: 13px;
+    margin: 0;
+}
 
-            nav {
-                justify-content: center;
-            }
+/* Rangabzeichen */
 
-            .hero h1 {
-                font-size: 27px;
-            }
-        }
-    </style>
+.epaulette {
+    width: 78px;
+    height: 137px;
+    margin: 0 auto;
+    position: relative;
+    background: linear-gradient(120deg, #E2BC62, #98702D, #E9CA79);
+    clip-path: polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%);
+    filter: drop-shadow(0 3px 5px #000);
+}
+
+.epaulette-inner {
+    position: absolute;
+    inset: 3px;
+    background: linear-gradient(145deg, #142B49, #071426);
+    clip-path: polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pin {
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFF0B2, #D5A83D 65%, #80591E);
+    border: 1px solid #F4D88D;
+    z-index: 2;
+}
+
+.symbols {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: #E8C36B;
+    text-shadow: 0 1px 3px #8A641F;
+}
+
+.star {
+    font-size: 25px;
+    line-height: 22px;
+}
+
+.bar {
+    width: 34px;
+    height: 6px;
+    border-radius: 1px;
+    background: linear-gradient(#FFF0B0, #D5A83D 60%, #9A702B);
+    margin: 2px 0;
+}
+
+.book {
+    font-size: 29px;
+    line-height: 30px;
+}
+
+.laurel {
+    font-size: 34px;
+    line-height: 32px;
+}
+
+/* Größere Ansicht */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    background: rgba(0,0,0,.82);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+    background: #10233D;
+    border: 1px solid #D5B66C;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 380px;
+    padding: 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 50px #000;
+}
+
+.modal-content h2 {
+    color: #D5B66C;
+    margin-top: 5px;
+}
+
+.modal-content p { color: #C5CFDC; }
+
+.modal .epaulette {
+    width: 135px;
+    height: 235px;
+    margin: 25px auto;
+}
+
+.modal .pin {
+    width: 22px;
+    height: 22px;
+    top: 22px;
+}
+
+.modal .symbols { margin-top: 42px; }
+.modal .star { font-size: 42px; line-height: 39px; }
+.modal .bar { width: 58px; height: 10px; }
+.modal .book { font-size: 48px; line-height: 50px; }
+.modal .laurel { font-size: 57px; line-height: 55px; }
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close:hover { color: #D5B66C; }
+
+.hint {
+    text-align: center;
+    color: #AAB8CA;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 45px;
+    background: #09182B;
+    color: #AEB8C7;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header { justify-content: center; }
+    nav { justify-content: center; }
+    .hero h1 { font-size: 27px; }
+    .ranks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+</style>
 </head>
 
 <body>
@@ -156,7 +301,6 @@
         <img src="logo.jpg" alt="Polizei NRP Logo">
         Polizei NRP
     </strong>
-
     <nav>
         <a href="index.html">Startseite</a>
         <a href="organisation.html">Organisation</a>
@@ -168,69 +312,166 @@
 
 <section class="hero">
     <h1>Dienstgrade der Polizei NRP</h1>
-    <p>Die Rangordnung und Laufbahngruppen der Polizei NRP.</p>
+    <p>Sicherheit. Ordnung. Verantwortung.</p>
 </section>
 
-<main>
+<main id="rank-container"></main>
 
-    <section class="rank-group">
-        <h2>Höchster Dienst</h2>
-        <div class="ranks">
-            <div class="rank"><span class="abbreviation">LPP</span><h3>Landespolizeipräsident</h3></div>
-            <div class="rank"><span class="abbreviation">LPVP</span><h3>Landespolizeivizepräsident</h3></div>
-            <div class="rank"><span class="abbreviation">PP</span><h3>Polizeipräsident</h3></div>
-            <div class="rank"><span class="abbreviation">PVP</span><h3>Polizeivizepräsident</h3></div>
-        </div>
-    </section>
+<p class="hint">Klicke auf einen Dienstgrad, um das Rangabzeichen zu vergrößern.</p>
 
-    <section class="rank-group">
-        <h2>Höhere Leitung</h2>
-        <div class="ranks">
-            <div class="rank"><span class="abbreviation">LPD</span><h3>Leitender Polizeidirektor</h3></div>
-            <div class="rank"><span class="abbreviation">PD</span><h3>Polizei Direktor</h3></div>
-            <div class="rank"><span class="abbreviation">POR</span><h3>Polizeioberrat</h3></div>
-            <div class="rank"><span class="abbreviation">PR</span><h3>Polizeirat</h3></div>
-            <div class="rank"><span class="abbreviation">PRA</span><h3>Polizeiratanwärter</h3></div>
-        </div>
-    </section>
-
-    <section class="rank-group">
-        <h2>Ausbilder</h2>
-        <div class="ranks">
-            <div class="rank"><span class="abbreviation">LAB</span><h3>LTD. Ausbilder</h3></div>
-            <div class="rank"><span class="abbreviation">T-LAB</span><h3>Test LTD. Ausbilder</h3></div>
-            <div class="rank"><span class="abbreviation">AB</span><h3>Ausbilder</h3></div>
-            <div class="rank"><span class="abbreviation">T-AB</span><h3>Test Ausbilder</h3></div>
-        </div>
-    </section>
-
-    <section class="rank-group">
-        <h2>Gehobener Dienst</h2>
-        <div class="ranks">
-            <div class="rank"><span class="abbreviation">EPHK</span><h3>Erster Polizeihauptkommissar</h3></div>
-            <div class="rank"><span class="abbreviation">PHK</span><h3>Polizeihauptkommissar</h3></div>
-            <div class="rank"><span class="abbreviation">POK</span><h3>Polizeioberkommissar</h3></div>
-            <div class="rank"><span class="abbreviation">PK</span><h3>Polizeikommissar</h3></div>
-            <div class="rank"><span class="abbreviation">PKA</span><h3>Polizeikommissaranwärter</h3></div>
-        </div>
-    </section>
-
-    <section class="rank-group">
-        <h2>Kleiner Dienst</h2>
-        <div class="ranks">
-            <div class="rank"><span class="abbreviation">PHM</span><h3>Polizeihauptmeister</h3></div>
-            <div class="rank"><span class="abbreviation">POM</span><h3>Polizeiobermeister</h3></div>
-            <div class="rank"><span class="abbreviation">PM</span><h3>Polizeimeister</h3></div>
-            <div class="rank"><span class="abbreviation">PMA</span><h3>Polizeimeisteranwärter</h3></div>
-            <div class="rank"><span class="abbreviation">PAW</span><h3>Polizeianwärter</h3></div>
-        </div>
-    </section>
-
-</main>
+<div class="modal" id="rankModal" onclick="closeModal(event)">
+    <div class="modal-content">
+        <button class="close" onclick="closeModal()" aria-label="Schließen">&times;</button>
+        <h2 id="modalTitle"></h2>
+        <div id="modalBadge"></div>
+        <p id="modalAbbreviation"></p>
+        <p>Rangabzeichen der Polizei NRP</p>
+    </div>
+</div>
 
 <footer>
     Polizei NRP · Sicherheit. Ordnung. Verantwortung.
 </footer>
+
+<script>
+const groups = [
+    {
+        name: "Höchster Dienst",
+        ranks: [
+            ["LPP", "Landespolizeipräsident", "laurel", 1, 0],
+            ["LPVP", "Landespolizeivizepräsident", "laurel", 2, 2],
+            ["PP", "Polizeipräsident", "star", 3, 0],
+            ["PVP", "Polizeivizepräsident", "star", 2, 0]
+        ]
+    },
+    {
+        name: "Höhere Leitung",
+        ranks: [
+            ["LPD", "Leitender Polizeidirektor", "bar", 0, 3],
+            ["PD", "Polizei Direktor", "bar", 0, 2],
+            ["POR", "Polizeioberrat", "bar", 0, 1],
+            ["PR", "Polizeirat", "star", 1, 0],
+            ["PRA", "Polizeiratanwärter", "star", 1, 1]
+        ]
+    },
+    {
+        name: "Ausbilder",
+        ranks: [
+            ["LAB", "LTD. Ausbilder", "book", 0, 2],
+            ["T-LAB", "Test LTD. Ausbilder", "book", 0, 1],
+            ["AB", "Ausbilder", "book", 0, 0],
+            ["T-AB", "Test Ausbilder", "book", 0, 0]
+        ]
+    },
+    {
+        name: "Gehobener Dienst",
+        ranks: [
+            ["EPHK", "Erster Polizeihauptkommissar", "star", 3, 0],
+            ["PHK", "Polizeihauptkommissar", "star", 2, 0],
+            ["POK", "Polizeioberkommissar", "star", 1, 0],
+            ["PK", "Polizeikommissar", "bar", 0, 1],
+            ["PKA", "Polizeikommissaranwärter", "star", 1, 1]
+        ]
+    },
+    {
+        name: "Kleiner Dienst",
+        ranks: [
+            ["PHM", "Polizeihauptmeister", "bar", 0, 3],
+            ["POM", "Polizeiobermeister", "bar", 0, 2],
+            ["PM", "Polizeimeister", "bar", 0, 1],
+            ["PMA", "Polizeimeisteranwärter", "star", 1, 1],
+            ["PAW", "Polizeianwärter", "star", 1, 0]
+        ]
+    }
+];
+
+function makeBadge(type, stars, bars) {
+    let symbols = "";
+
+    if (type === "laurel") {
+        symbols = '<div class="laurel">❧</div>';
+        if (stars > 1) symbols += '<div class="star">★</div>';
+    } else if (type === "book") {
+        symbols = '<div class="book">▱</div>';
+        if (bars > 0) {
+            for (let i = 0; i < bars; i++) symbols += '<div class="bar"></div>';
+        }
+    } else if (type === "star") {
+        for (let i = 0; i < stars; i++) {
+            symbols += '<div class="star">★</div>';
+        }
+        for (let i = 0; i < bars; i++) {
+            symbols += '<div class="bar"></div>';
+        }
+    } else {
+        for (let i = 0; i < bars; i++) {
+            symbols += '<div class="bar"></div>';
+        }
+    }
+
+    return `
+        <div class="epaulette">
+            <div class="epaulette-inner">
+                <div class="pin"></div>
+                <div class="symbols">${symbols}</div>
+            </div>
+        </div>`;
+}
+
+const container = document.getElementById("rank-container");
+
+groups.forEach(group => {
+    const section = document.createElement("section");
+    section.className = "rank-group";
+
+    const title = document.createElement("h2");
+    title.className = "group-title";
+    title.textContent = group.name;
+    section.appendChild(title);
+
+    const ranks = document.createElement("div");
+    ranks.className = "ranks";
+
+    group.ranks.forEach(rank => {
+        const [abbr, name, type, stars, bars] = rank;
+
+        const card = document.createElement("button");
+        card.className = "rank-card";
+        card.type = "button";
+        card.innerHTML = `
+            ${makeBadge(type, stars, bars)}
+            <h3>${abbr}</h3>
+            <p>${name}</p>
+        `;
+
+        card.addEventListener("click", () => {
+            document.getElementById("modalTitle").textContent = name;
+            document.getElementById("modalAbbreviation").textContent = abbr;
+            document.getElementById("modalBadge").innerHTML =
+                makeBadge(type, stars, bars);
+            document.getElementById("rankModal").classList.add("show");
+        });
+
+        ranks.appendChild(card);
+    });
+
+    section.appendChild(ranks);
+    container.appendChild(section);
+});
+
+function closeModal(event) {
+    if (!event || event.target.id === "rankModal" ||
+        event.target.classList.contains("close")) {
+        document.getElementById("rankModal").classList.remove("show");
+    }
+}
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        document.getElementById("rankModal").classList.remove("show");
+    }
+});
+</script>
 
 </body>
 </html>
