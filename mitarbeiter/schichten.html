@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schichtsystem | Polizei NRP</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #f1f3f6;
+}
+
+header {
+    background: #101d32;
+    border-bottom: 2px solid #d5b66c;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+header h1 { margin: 0; font-size: 22px; }
+header p { color: #d5b66c; margin: 5px 0 0; }
+
+.container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h2 { color: #d5b66c; }
+
+.description {
+    color: #b9c3d0;
+    line-height: 1.5;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.card {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 20px;
+}
+
+.card h3 {
+    margin-top: 0;
+    color: #d5b66c;
+}
+
+.value {
+    font-size: 27px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+.muted {
+    color: #aab5c3;
+    font-size: 13px;
+}
+
+.status {
+    display: inline-block;
+    background: #263b31;
+    color: #b8e0c1;
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.section {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px 8px;
+    text-align: left;
+    border-bottom: 1px solid #34445a;
+}
+
+th { color: #d5b66c; }
+
+.notice {
+    background: #172941;
+    border-left: 3px solid #d5b66c;
+    padding: 15px;
+    margin-top: 25px;
+    color: #cbd3de;
+    line-height: 1.5;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #d5b66c;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8997a9;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    .container { padding: 20px 14px; }
+    .section { padding: 15px; }
+    table { font-size: 13px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="../logo.jpg" alt="Polizei NRP Logo">
+    <div>
+        <h1>Polizei NRP</h1>
+        <p>Schicht- und Gehaltssystem</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <h2>Mein Schichtbereich</h2>
+    <p class="description">
+        Übersicht über deine geleisteten Schichten,
+        Arbeitszeiten und offenen Auszahlungen.
+    </p>
+
+    <div class="grid">
+
+        <section class="card">
+            <h3>Schichtstatus</h3>
+            <span class="status">Nicht im Dienst</span>
+            <p class="muted">Aktuell keine laufende Schicht</p>
+        </section>
+
+        <section class="card">
+            <h3>Gesamte Arbeitszeit</h3>
+            <div class="value">00:00 Std.</div>
+            <p class="muted">Alle abgeschlossenen Schichten</p>
+        </section>
+
+        <section class="card">
+            <h3>Offene Auszahlung</h3>
+            <div class="value">0 N$</div>
+            <p class="muted">Noch nicht ausgezahltes Gehalt</p>
+        </section>
+
+    </div>
+
+    <section class="section">
+        <h2>Schichtsteuerung</h2>
+        <p class="description">
+            Hier kannst du später deine Schicht starten,
+            pausieren, fortsetzen und beenden.
+        </p>
+        <p class="muted">
+            Die Schichtsteuerung wird mit dem Backend aktiviert.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2>Meine Schichtübersicht</h2>
+        <p class="description">
+            Hier werden deine vergangenen Schichten angezeigt.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Arbeitszeit</th>
+                    <th>Vergütung</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4" style="text-align:center;color:#aab5c3;">
+                        Noch keine Schichtdaten vorhanden.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="section">
+        <h2>Gehaltsregelung</h2>
+        <div class="grid">
+            <div>
+                <div class="value">500 N$</div>
+                <p class="muted">Für jeweils 5 Minuten Arbeitszeit</p>
+            </div>
+            <div>
+                <div class="value">6.000 N$</div>
+                <p class="muted">Für 60 Minuten Arbeitszeit</p>
+            </div>
+        </div>
+        <p class="description">
+            Es werden ausschließlich vollständig geleistete
+            5-Minuten-Abschnitte vergütet. Pausenzeiten werden
+            nicht berücksichtigt. Die Auszahlung erfolgt manuell
+            durch die zuständige Leitung.
+        </p>
+    </section>
+
+    <div class="notice">
+        <strong>Systemstatus:</strong>
+        Diese Seite ist derzeit eine Vorschau.
+        Arbeitszeiten, Schichten und Gehälter werden noch nicht
+        gespeichert oder berechnet.
+    </div>
+
+    <a class="back" href="index.html">
+        Zurück zum Mitarbeiterbereich
+    </a>
+
+</main>
+
+<footer>
+    Polizei NRP – Sicherheit. Ordnung. Verantwortung.
+</footer>
+
+</body>
+</html>
