@@ -1,1 +1,264 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verwaltung | Polizei NRP</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #f1f3f6;
+}
+
+header {
+    background: #101d32;
+    border-bottom: 2px solid #d5b66c;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 23px;
+}
+
+header p {
+    color: #d5b66c;
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.welcome {
+    margin-bottom: 28px;
+}
+
+.welcome h2 {
+    color: #d5b66c;
+    margin-bottom: 8px;
+}
+
+.welcome p {
+    color: #b9c3d0;
+}
+
+.admin-status {
+    display: inline-block;
+    background: #263b31;
+    color: #b8e0c1;
+    border: 1px solid #52775e;
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.section-title {
+    color: #d5b66c;
+    margin: 32px 0 15px;
+    font-size: 19px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 20px;
+    min-height: 135px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    color: #e3c77e;
+    font-size: 17px;
+}
+
+.card p {
+    color: #b9c3d0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.card button {
+    background: #d5b66c;
+    color: #071426;
+    border: none;
+    border-radius: 5px;
+    padding: 9px 13px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.card button:hover {
+    background: #e7cc8c;
+}
+
+.notice {
+    background: #172941;
+    border-left: 3px solid #d5b66c;
+    padding: 15px;
+    margin-top: 30px;
+    color: #cbd3de;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 28px;
+    color: #d5b66c;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8997a9;
+    font-size: 13px;
+}
+
+@media(max-width: 600px) {
+    header h1 { font-size: 19px; }
+    .container { padding: 22px 15px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="../logo.jpg" alt="Polizei NRP Logo">
+    <div>
+        <h1>Polizei NRP</h1>
+        <p>Verwaltungsoberfläche</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <h2>Willkommen in der Verwaltung</h2>
+        <p>Verwaltungs- und Organisationsbereich der Polizei NRP.</p>
+        <span class="admin-status">Administrator-Dashboard – Vorschau</span>
+    </section>
+
+    <h2 class="section-title">Personalverwaltung</h2>
+    <section class="grid">
+
+        <article class="card">
+            <h3>Zugangsanträge</h3>
+            <p>Neue Anträge prüfen und über Freigaben entscheiden.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Mitarbeiterverwaltung</h3>
+            <p>Mitarbeiter, Dienstgrade und Personalübersichten verwalten.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Berechtigungen</h3>
+            <p>Zugriffsrechte und abteilungsspezifische Freigaben verwalten.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+    </section>
+
+    <h2 class="section-title">Dienstbetrieb und Vorschriften</h2>
+    <section class="grid">
+
+        <article class="card">
+            <h3>Dienstvorschriften</h3>
+            <p>Allgemeine Dienstregeln und interne Vorschriften verwalten.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Gesetze und Rechtsgrundlagen</h3>
+            <p>Rechtliche Grundlagen und Regelwerke bereitstellen.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Interne Nachrichten</h3>
+            <p>Mitteilungen und Bekanntmachungen veröffentlichen.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+    </section>
+
+    <h2 class="section-title">Ausbildung und Abteilungen</h2>
+    <section class="grid">
+
+        <article class="card">
+            <h3>Ausbildungsbereich</h3>
+            <p>Ausbildungsunterlagen, Lehrmaterialien und Prüfungen verwalten.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Abteilungsverwaltung</h3>
+            <p>SEK, Kriminalpolizei, Zivilpolizei und weitere Bereiche organisieren.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+        <article class="card">
+            <h3>Leitung und Verwaltung</h3>
+            <p>Organisationsunterlagen und Verwaltungsinformationen.</p>
+            <button onclick="comingSoon()">Öffnen</button>
+        </article>
+
+    </section>
+
+    <div class="notice">
+        <strong>Hinweis:</strong>
+        Diese Oberfläche ist derzeit eine Vorschau.
+        Die Anmeldung, Administratorprüfung, Datenspeicherung und
+        Verwaltungsfunktionen werden erst mit dem Backend aktiviert.
+        Bis dahin ist diese Seite öffentlich erreichbar.
+    </div>
+
+    <a class="back" href="index.html">Zurück zum Mitarbeiterbereich</a>
+
+</main>
+
+<footer>
+    Polizei NRP – Sicherheit. Ordnung. Verantwortung.
+</footer>
+
+<script>
+function comingSoon() {
+    alert("Diese Verwaltungsfunktion wird noch eingerichtet.");
+}
+</script>
+
+</body>
+</html>
+
