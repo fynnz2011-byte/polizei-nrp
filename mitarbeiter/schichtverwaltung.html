@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schichtverwaltung | Polizei NRP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #f1f3f6;
+}
+
+header {
+    background: #101d32;
+    border-bottom: 2px solid #d5b66c;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header img {
+    width: 65px;
+    max-height: 65px;
+    object-fit: contain;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+header p {
+    color: #d5b66c;
+    margin: 5px 0 0;
+    font-size: 13px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h2 {
+    color: #d5b66c;
+}
+
+.description {
+    color: #b9c3d0;
+    line-height: 1.5;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.stat {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 18px;
+}
+
+.stat span {
+    color: #b9c3d0;
+    font-size: 14px;
+}
+
+.stat strong {
+    display: block;
+    color: #d5b66c;
+    font-size: 27px;
+    margin-top: 9px;
+}
+
+.panel {
+    background: #101d32;
+    border: 1px solid #34445a;
+    border-radius: 9px;
+    padding: 22px;
+    margin-top: 22px;
+}
+
+.panel h3 {
+    color: #d5b66c;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 13px 10px;
+    text-align: left;
+    border-bottom: 1px solid #34445a;
+}
+
+th {
+    color: #d5b66c;
+    font-size: 13px;
+}
+
+td {
+    color: #d5dce5;
+    font-size: 14px;
+}
+
+.empty {
+    text-align: center;
+    color: #aab5c3;
+    padding: 25px 10px;
+}
+
+.status {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 5px;
+    background: #263b31;
+    color: #b8e0c1;
+    font-size: 12px;
+}
+
+.status.pause {
+    background: #493b23;
+    color: #f0d18d;
+}
+
+.notice {
+    background: #172941;
+    border-left: 3px solid #d5b66c;
+    padding: 15px;
+    margin-top: 25px;
+    color: #cbd3de;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    color: #d5b66c;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8997a9;
+    font-size: 13px;
+}
+
+@media(max-width: 650px) {
+    .container {
+        padding: 20px 12px;
+    }
+
+    .panel {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="../logo.jpg" alt="Polizei NRP Logo">
+    <div>
+        <h1>Polizei NRP</h1>
+        <p>Verwaltung – Schichtsystem</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <h2>Schichtverwaltung</h2>
+
+    <p class="description">
+        Zentrale Übersicht aller Mitarbeiter,
+        laufenden Schichten und geleisteten Arbeitszeiten.
+    </p>
+
+    <section class="stats">
+
+        <div class="stat">
+            <span>Aktive Schichten</span>
+            <strong>–</strong>
+        </div>
+
+        <div class="stat">
+            <span>Mitarbeiter in Pause</span>
+            <strong>–</strong>
+        </div>
+
+        <div class="stat">
+            <span>Abgeschlossene Schichten</span>
+            <strong>–</strong>
+        </div>
+
+        <div class="stat">
+            <span>Gesamte Arbeitszeit</span>
+            <strong>–</strong>
+        </div>
+
+    </section>
+
+    <section class="panel">
+        <h3>Aktuelle Schichten</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mitarbeiter</th>
+                    <th>Dienstgrad</th>
+                    <th>Schichtbeginn</th>
+                    <th>Arbeitszeit</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="5" class="empty">
+                        Noch keine Schichtdaten vorhanden.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="panel">
+        <h3>Abgeschlossene Schichten</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Mitarbeiter</th>
+                    <th>Datum</th>
+                    <th>Arbeitszeit</th>
+                    <th>Verdienst</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td colspan="5" class="empty">
+                        Noch keine abgeschlossenen Schichten vorhanden.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="panel">
+        <h3>Administrative Zeitkorrekturen</h3>
+
+        <p class="description">
+            Hier kannst du später Arbeitszeiten hinzufügen,
+            abziehen oder fehlerhafte Schichten löschen.
+            Jede Änderung wird mit Administrator und Zeitpunkt protokolliert.
+        </p>
+
+        <p class="empty">
+            Die Zeitkorrekturen werden mit dem Backend aktiviert.
+        </p>
+    </section>
+
+    <div class="notice">
+        <strong>Systemstatus:</strong>
+        Die Schichtverwaltung ist aktuell eine Vorschau.
+        Es werden noch keine echten Mitarbeiterdaten oder
+        Arbeitszeiten geladen. Änderungen sind noch nicht möglich.
+    </div>
+
+    <a class="back" href="verwaltung.html">
+        Zurück zur Verwaltung
+    </a>
+
+</main>
+
+<footer>
+    Polizei NRP – Sicherheit. Ordnung. Verantwortung.
+</footer>
+
+</body>
+</html>
