@@ -28,8 +28,8 @@ header {
 }
 
 header img {
-    width: 58px;
-    height: 58px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
 }
 
@@ -44,8 +44,8 @@ header p {
 }
 
 main {
-    max-width: 850px;
-    margin: 55px auto;
+    max-width: 900px;
+    margin: 45px auto;
     padding: 0 18px;
 }
 
@@ -62,6 +62,16 @@ main {
 .intro p {
     color: #aeb9c8;
     line-height: 1.6;
+}
+
+.notice {
+    background: #332b19;
+    border: 1px solid #d5b66c;
+    border-radius: 9px;
+    padding: 15px;
+    color: #f1dfb5;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .card {
@@ -101,14 +111,12 @@ main {
     border: 1px solid #40536e;
 }
 
-.notice {
-    background: #332b19;
-    border: 1px solid #d5b66c;
-    border-radius: 9px;
-    padding: 14px;
-    color: #f1dfb5;
-    line-height: 1.5;
-    margin-bottom: 25px;
+.back {
+    display: block;
+    text-align: center;
+    margin: 35px 0;
+    color: #d5b66c;
+    text-decoration: none;
 }
 
 footer {
@@ -154,16 +162,18 @@ footer {
         Eine sichere Anmeldung und Zugriffskontrolle sind noch nicht eingerichtet.
         Das Portal ist daher derzeit nicht für vertrauliche interne Informationen geeignet.
     </div>
-<div class="card">
-    <h3>Dienstvorschriften</h3>
-    <p>
-        Hier findest du alle geltenden Dienstvorschriften,
-        Verhaltensregeln und Disziplinarmaßnahmen der Polizei NRP.
-    </p>
-    <a class="button" href="dienstvorschriften.html">
-        Dienstvorschriften öffnen
-    </a>
-</div>
+
+    <div class="card">
+        <h3>Dienstvorschriften</h3>
+        <p>
+            Hier findest du alle geltenden Dienstvorschriften,
+            Verhaltensregeln und Disziplinarmaßnahmen der Polizei NRP.
+        </p>
+        <a class="button" href="dienstvorschriften.html">
+            Dienstvorschriften öffnen
+        </a>
+    </div>
+
     <div class="card">
         <h3>Mitarbeiterportal</h3>
         <p>
@@ -190,11 +200,9 @@ footer {
         </p>
     </div>
 
-    <p style="text-align:center;">
-        <a href="../index.html" style="color:#d5b66c;text-decoration:none;">
-            Zurück zur Hauptseite
-        </a>
-    </p>
+    <a class="back" href="../index.html">
+        Zurück zur Hauptseite
+    </a>
 
 </main>
 
