@@ -7,7 +7,9 @@
 <title>Verwaltung | Polizei NRP</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -49,7 +51,7 @@ header p {
 }
 
 .welcome {
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 
 .welcome h2 {
@@ -59,6 +61,7 @@ header p {
 
 .welcome p {
     color: #b9c3d0;
+    line-height: 1.5;
 }
 
 .admin-status {
@@ -74,13 +77,15 @@ header p {
 
 .section-title {
     color: #d5b66c;
-    margin: 32px 0 15px;
     font-size: 19px;
+    margin: 32px 0 15px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #34445a;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
 }
 
@@ -89,7 +94,9 @@ header p {
     border: 1px solid #34445a;
     border-radius: 9px;
     padding: 20px;
-    min-height: 135px;
+    min-height: 165px;
+    display: flex;
+    flex-direction: column;
 }
 
 .card h3 {
@@ -102,20 +109,23 @@ header p {
     color: #b9c3d0;
     font-size: 14px;
     line-height: 1.5;
+    flex-grow: 1;
 }
 
-.card button {
+.card a {
+    display: inline-block;
+    width: fit-content;
     background: #d5b66c;
     color: #071426;
-    border: none;
     border-radius: 5px;
-    padding: 9px 13px;
+    padding: 10px 14px;
     font-weight: bold;
-    cursor: pointer;
-    margin-top: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    margin-top: 10px;
 }
 
-.card button:hover {
+.card a:hover {
     background: #e7cc8c;
 }
 
@@ -123,7 +133,7 @@ header p {
     background: #172941;
     border-left: 3px solid #d5b66c;
     padding: 15px;
-    margin-top: 30px;
+    margin-top: 32px;
     color: #cbd3de;
     line-height: 1.5;
     font-size: 14px;
@@ -136,6 +146,10 @@ header p {
     text-decoration: none;
 }
 
+.back:hover {
+    text-decoration: underline;
+}
+
 footer {
     text-align: center;
     padding: 25px;
@@ -143,9 +157,32 @@ footer {
     font-size: 13px;
 }
 
-@media(max-width: 600px) {
-    header h1 { font-size: 19px; }
-    .container { padding: 22px 15px; }
+@media (max-width: 850px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 19px;
+    }
+
+    .container {
+        padding: 22px 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 145px;
+    }
 }
 </style>
 </head>
@@ -163,106 +200,157 @@ footer {
 <main class="container">
 
     <section class="welcome">
-        <h2>Willkommen in der Verwaltung</h2>
-        <p>Verwaltungs- und Organisationsbereich der Polizei NRP.</p>
-        <span class="admin-status">Administrator-Dashboard – Vorschau</span>
+        <h2>Verwaltungs-Dashboard</h2>
+        <p>
+            Zentrale Verwaltungsoberfläche für Personal,
+            Dienstbetrieb, Ausbildung und Organisation
+            der Polizei NRP.
+        </p>
+        <span class="admin-status">
+            Administrator-Dashboard – Vorschau
+        </span>
     </section>
 
+
     <h2 class="section-title">Personalverwaltung</h2>
+
     <section class="grid">
 
         <article class="card">
             <h3>Zugangsanträge</h3>
-            <p>Neue Anträge prüfen und über Freigaben entscheiden.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Neue Anträge für den Mitarbeiterbereich
+                prüfen und bearbeiten.
+            </p>
+            <a href="antraege.html">Öffnen</a>
         </article>
 
         <article class="card">
             <h3>Mitarbeiterverwaltung</h3>
-            <p>Mitarbeiter, Dienstgrade und Personalübersichten verwalten.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Mitarbeiter, Dienstgrade und Personalübersichten verwalten.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
         </article>
 
         <article class="card">
             <h3>Berechtigungen</h3>
-            <p>Zugriffsrechte und abteilungsspezifische Freigaben verwalten.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Zugriffsrechte und abteilungsspezifische
+                Freigaben verwalten.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
         </article>
 
     </section>
 
+
+    <h2 class="section-title">Schicht- und Gehaltssystem</h2>
+
+    <section class="grid">
+
+        <article class="card">
+            <h3>Schichtverwaltung</h3>
+            <p>
+                Laufende und abgeschlossene Schichten
+                aller Mitarbeiter kontrollieren.
+            </p>
+            <a href="schichtverwaltung.html">Öffnen</a>
+        </article>
+
+        <article class="card">
+            <h3>Gehaltsverwaltung</h3>
+            <p>
+                Offene Auszahlungen, verdiente Beträge
+                und abgeschlossene Zahlungen verwalten.
+            </p>
+            <a href="gehalt.html">Öffnen</a>
+        </article>
+
+    </section>
+
+
     <h2 class="section-title">Dienstbetrieb und Vorschriften</h2>
+
     <section class="grid">
 
         <article class="card">
             <h3>Dienstvorschriften</h3>
-            <p>Allgemeine Dienstregeln und interne Vorschriften verwalten.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Allgemeine Dienstregeln und interne
+                Vorschriften verwalten.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
         </article>
 
         <article class="card">
             <h3>Gesetze und Rechtsgrundlagen</h3>
-            <p>Rechtliche Grundlagen und Regelwerke bereitstellen.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Rechtliche Grundlagen und Regelwerke
+                bereitstellen.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
         </article>
 
         <article class="card">
             <h3>Interne Nachrichten</h3>
-            <p>Mitteilungen und Bekanntmachungen veröffentlichen.</p>
-            <button onclick="comingSoon()">Öffnen</button>
-        </article>
-
-    
-<h2 class="section-title">Personal und Schichtbetrieb</h2>
-<section class="grid">
-
-    <article class="card">
-        <h3>Schichtverwaltung</h3>
-        <p>Alle Mitarbeiter, laufende Schichten und Arbeitszeiten kontrollieren.</p>
-        <button onclick="location.href='schichtverwaltung.html'">Öffnen</button>
-    </article>
-
-    <article class="card">
-        <h3>Gehaltsverwaltung</h3>
-        <p>Offene Auszahlungen, verdiente Beträge und abgeschlossene Zahlungen verwalten.</p>
-        <button onclick="location.href='gehalt.html'">Öffnen</button>
-    </article>
-
-</section>
-
-
-    <h2 class="section-title">Ausbildung und Abteilungen</h2>
-    <section class="grid">
-
-        <article class="card">
-            <h3>Ausbildungsbereich</h3>
-            <p>Ausbildungsunterlagen, Lehrmaterialien und Prüfungen verwalten.</p>
-            <button onclick="comingSoon()">Öffnen</button>
-        </article>
-
-        <article class="card">
-            <h3>Abteilungsverwaltung</h3>
-            <p>SEK, Kriminalpolizei, Zivilpolizei und weitere Bereiche organisieren.</p>
-            <button onclick="comingSoon()">Öffnen</button>
-        </article>
-
-        <article class="card">
-            <h3>Leitung und Verwaltung</h3>
-            <p>Organisationsunterlagen und Verwaltungsinformationen.</p>
-            <button onclick="comingSoon()">Öffnen</button>
+            <p>
+                Mitteilungen und Bekanntmachungen
+                veröffentlichen.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
         </article>
 
     </section>
 
+
+    <h2 class="section-title">Ausbildung und Abteilungen</h2>
+
+    <section class="grid">
+
+        <article class="card">
+            <h3>Ausbildungsbereich</h3>
+            <p>
+                Ausbildungsunterlagen, Lehrmaterialien
+                und Prüfungen verwalten.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
+        </article>
+
+        <article class="card">
+            <h3>Abteilungsverwaltung</h3>
+            <p>
+                SEK, Kriminalpolizei, Zivilpolizei
+                und weitere Bereiche organisieren.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
+        </article>
+
+        <article class="card">
+            <h3>Leitung und Verwaltung</h3>
+            <p>
+                Organisationsunterlagen und
+                Verwaltungsinformationen verwalten.
+            </p>
+            <a href="#" onclick="comingSoon(event)">Öffnen</a>
+        </article>
+
+    </section>
+
+
     <div class="notice">
-        <strong>Hinweis:</strong>
-        Diese Oberfläche ist derzeit eine Vorschau.
-        Die Anmeldung, Administratorprüfung, Datenspeicherung und
-        Verwaltungsfunktionen werden erst mit dem Backend aktiviert.
-        Bis dahin ist diese Seite öffentlich erreichbar.
+        <strong>Systemhinweis:</strong>
+        Diese Verwaltungsoberfläche ist aktuell eine Vorschau.
+        Anmeldung, Administratorprüfung, Datenbank,
+        Schichtmessung und Gehaltsverwaltung werden
+        anschließend über ein sicheres Backend eingerichtet.
+        Die Seite ist derzeit öffentlich erreichbar.
+        Bitte keine vertraulichen Daten eintragen.
     </div>
 
-    <a class="back" href="index.html">Zurück zum Mitarbeiterbereich</a>
+    <a class="back" href="index.html">
+        Zurück zum Mitarbeiterbereich
+    </a>
 
 </main>
 
@@ -271,11 +359,11 @@ footer {
 </footer>
 
 <script>
-function comingSoon() {
+function comingSoon(event) {
+    event.preventDefault();
     alert("Diese Verwaltungsfunktion wird noch eingerichtet.");
 }
 </script>
 
 </body>
 </html>
-
