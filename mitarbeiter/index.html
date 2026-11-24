@@ -20,118 +20,110 @@ body {
 
 header {
     background: #101d32;
+    padding: 22px;
     border-bottom: 2px solid #d5b66c;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 header img {
-    width: 90px;
-    max-height: 90px;
+    width: 58px;
+    height: 58px;
     object-fit: contain;
 }
 
 header h1 {
-    margin: 12px 0 5px;
+    margin: 0;
+    font-size: 23px;
 }
 
 header p {
+    margin: 5px 0 0;
     color: #d5b66c;
-    margin: 0;
 }
 
-.container {
-    max-width: 650px;
-    margin: 45px auto;
-    padding: 25px;
+main {
+    max-width: 850px;
+    margin: 55px auto;
+    padding: 0 18px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #d5b66c;
+    font-size: 28px;
+}
+
+.intro p {
+    color: #aeb9c8;
+    line-height: 1.6;
 }
 
 .card {
     background: #101d32;
-    border: 1px solid #34445a;
+    border: 1px solid #263750;
     border-radius: 12px;
-    padding: 28px;
+    padding: 25px;
+    margin-bottom: 20px;
 }
 
-h2 {
+.card h3 {
     color: #d5b66c;
     margin-top: 0;
 }
 
-.description {
-    color: #c5ccd6;
+.card p {
+    color: #aeb9c8;
     line-height: 1.6;
 }
 
-label {
+.button {
     display: block;
-    margin: 18px 0 7px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
     font-weight: bold;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 6px;
-    border: 1px solid #526176;
-    background: #071426;
-    color: white;
-    font-size: 15px;
-}
-
-textarea {
-    min-height: 110px;
-    resize: vertical;
-}
-
-button {
-    width: 100%;
-    margin-top: 24px;
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
+    text-decoration: none;
+    margin-top: 18px;
     background: #d5b66c;
-    color: #071426;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    color: #101d32;
 }
 
-button:hover {
-    background: #e7cc8c;
+.button.secondary {
+    background: #263750;
+    color: #f1f3f6;
+    border: 1px solid #40536e;
 }
 
 .notice {
-    margin-top: 20px;
+    background: #332b19;
+    border: 1px solid #d5b66c;
+    border-radius: 9px;
     padding: 14px;
-    border-left: 3px solid #d5b66c;
-    background: #172941;
-    color: #d5dce5;
+    color: #f1dfb5;
     line-height: 1.5;
-}
-
-.back {
-    display: inline-block;
-    margin-top: 22px;
-    color: #d5b66c;
-    text-decoration: none;
+    margin-bottom: 25px;
 }
 
 footer {
     text-align: center;
-    padding: 25px;
-    color: #929eae;
-    font-size: 13px;
+    padding: 30px 15px;
+    color: #8290a3;
 }
 
-@media (max-width: 600px) {
-    .container {
-        margin: 20px auto;
-        padding: 15px;
+@media(max-width: 600px) {
+    main {
+        margin-top: 30px;
     }
 
-    .card {
-        padding: 20px;
+    .intro h2 {
+        font-size: 23px;
     }
 }
 </style>
@@ -141,85 +133,65 @@ footer {
 
 <header>
     <img src="../logo.jpg" alt="Polizei NRP Logo">
-    <h1>Mitarbeiterbereich</h1>
-    <p>Sicherheit. Ordnung. Verantwortung.</p>
+    <div>
+        <h1>Mitarbeiterbereich</h1>
+        <p>Polizei NRP</p>
+    </div>
 </header>
 
-<main class="container">
-    <section class="card">
-        <h2>Zugang beantragen</h2>
+<main>
 
-        <p class="description">
-            Du bist Mitglied der Polizei NRP und möchtest Zugang
-            zum internen Mitarbeiterbereich erhalten?
-            Stelle hier einen Antrag. Die Leitung prüft deine Angaben
-            und entscheidet anschließend über die Freigabe.
+    <div class="intro">
+        <h2>Interner Mitarbeiterbereich</h2>
+        <p>
+            Willkommen im internen Bereich der Polizei NRP.
+            Wähle aus, wie du fortfahren möchtest.
         </p>
+    </div>
 
-        <form id="requestForm">
+    <div class="notice">
+        <strong>Wichtiger Hinweis:</strong>
+        Eine sichere Anmeldung und Zugriffskontrolle sind noch nicht eingerichtet.
+        Das Portal ist daher derzeit nicht für vertrauliche interne Informationen geeignet.
+    </div>
 
-            <label for="discord">Discord-Benutzername</label>
-            <input
-                type="text"
-                id="discord"
-                placeholder="Dein Discord-Benutzername"
-                required
-            >
-
-            <label for="dienstgrad">Aktueller Dienstgrad</label>
-            <input
-                type="text"
-                id="dienstgrad"
-                placeholder="Dein aktueller Dienstgrad"
-                required
-            >
-
-            <label for="bereich">Gewünschter Zugang</label>
-            <select id="bereich" required>
-                <option value="">Bitte auswählen</option>
-                <option>Allgemeiner Mitarbeiterbereich</option>
-                <option>Ausbildungsbereich</option>
-                <option>SEK</option>
-                <option>Kriminalpolizei</option>
-                <option>Zivilpolizei</option>
-                <option>Personenschutz</option>
-                <option>Verwaltung</option>
-                <option>Leitung</option>
-            </select>
-
-            <label for="reason">Begründung</label>
-            <textarea
-                id="reason"
-                placeholder="Warum benötigst du diesen Zugang?"
-                required
-            ></textarea>
-
-            <button type="submit">Zugang beantragen</button>
-        </form>
-
-        <div class="notice">
-            <strong>Hinweis:</strong>
-            Jeder Antrag wird durch die zuständige Leitung geprüft.
-            Ein Zugang wird erst nach ausdrücklicher Genehmigung freigeschaltet.
-        </div>
-
-        <a class="back" href="../index.html">
-            Zurück zur Startseite
+    <div class="card">
+        <h3>Mitarbeiterportal</h3>
+        <p>
+            Öffne die zentrale Übersicht mit dem Schichtbereich
+            und den weiteren Mitarbeiterbereichen.
+        </p>
+        <a class="button" href="portal.html">
+            Mitarbeiterportal öffnen
         </a>
-    </section>
+    </div>
+
+    <div class="card">
+        <h3>Zugang beantragen</h3>
+        <p>
+            Du bist Mitarbeiter der Polizei NRP und benötigst einen Zugang?
+            Stelle hier deinen Antrag.
+        </p>
+        <a class="button secondary" href="index.html#antrag">
+            Zugang beantragen
+        </a>
+        <p>
+            Das Antragsformular ist aktuell noch nicht mit einem
+            Übermittlungssystem verbunden.
+        </p>
+    </div>
+
+    <p style="text-align:center;">
+        <a href="../index.html" style="color:#d5b66c;text-decoration:none;">
+            Zurück zur Hauptseite
+        </a>
+    </p>
+
 </main>
 
 <footer>
-    Polizei NRP – Interner Mitarbeiterbereich
+    Polizei NRP · Sicherheit. Ordnung. Verantwortung.
 </footer>
-
-<script>
-document.getElementById("requestForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    alert("Das Antragsformular ist derzeit noch nicht mit dem E-Mail-System verbunden. Dein Antrag wurde nicht versendet.");
-});
-</script>
 
 </body>
 </html>
