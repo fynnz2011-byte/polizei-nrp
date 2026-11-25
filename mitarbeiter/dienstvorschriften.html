@@ -1,1 +1,413 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dienstvorschriften | Polizei NRP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1424;
+    color: #ffffff;
+}
+
+header {
+    background: #101d32;
+    border-bottom: 2px solid #d5b66c;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    color: #d5b66c;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-size: 14px;
+}
+
+header a:hover {
+    color: #d5b66c;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+h1 {
+    color: #d5b66c;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #aeb9ca;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.category {
+    background: #14233b;
+    border: 1px solid #293b56;
+    border-radius: 12px;
+    padding: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.category:hover {
+    border-color: #d5b66c;
+    transform: translateY(-3px);
+}
+
+.category h3 {
+    color: #d5b66c;
+    margin-top: 0;
+}
+
+.category p {
+    color: #b9c4d4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.number {
+    color: #d5b66c;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.content-section {
+    display: none;
+    background: #14233b;
+    border: 1px solid #293b56;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 25px;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h2 {
+    color: #d5b66c;
+}
+
+.content-section h3 {
+    color: #e2c77f;
+    margin-top: 25px;
+}
+
+.content-section p,
+.content-section li {
+    color: #d0d8e5;
+    line-height: 1.7;
+}
+
+.back-button {
+    background: #d5b66c;
+    color: #101d32;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.back-button:hover {
+    background: #edcf83;
+}
+
+footer {
+    text-align: center;
+    color: #7f8da3;
+    padding: 30px;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 18px;
+    }
+
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    header a {
+        margin: 0;
+    }
+
+    .container {
+        padding: 25px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">POLIZEI NRP</div>
+
+    <nav>
+        <a href="../index.html">Startseite</a>
+        <a href="../dienstgrade.html">Dienstgrade</a>
+        <a href="index.html">Mitarbeiterbereich</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <div id="overview">
+        <h1>Dienstvorschriften</h1>
+
+        <p class="subtitle">
+            Alle Mitarbeiter der Polizei NRP sind verpflichtet,
+            die geltenden Dienstvorschriften zu kennen und einzuhalten.
+            Wähle einen Bereich aus, um die entsprechenden Regelungen einzusehen.
+        </p>
+
+        <div class="category-grid">
+
+            <div class="category" onclick="openCategory('allgemein')">
+                <span class="number">01</span>
+                <h3>Allgemeine Regeln</h3>
+                <p>Grundlegende Pflichten und Verhaltensregeln im Polizeidienst.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('einsatz')">
+                <span class="number">02</span>
+                <h3>Verhalten im Einsatz</h3>
+                <p>Regelungen für Einsätze und den Umgang mit Gefahrensituationen.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('festnahme')">
+                <span class="number">03</span>
+                <h3>Festnahmen & Strafmaßnahmen</h3>
+                <p>Vorschriften zu Festnahmen und polizeilichen Maßnahmen.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('wache')">
+                <span class="number">04</span>
+                <h3>Verhalten in der Wache</h3>
+                <p>Ordnung, Verhalten und Zusammenarbeit innerhalb der Dienststelle.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('funk')">
+                <span class="number">05</span>
+                <h3>Verhalten im Funk</h3>
+                <p>Kommunikation, Funkdisziplin und Meldungen.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('disziplin')">
+                <span class="number">06</span>
+                <h3>Disziplinarmaßnahmen</h3>
+                <p>Konsequenzen bei Verstößen gegen die Dienstvorschriften.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('weiterbildung')">
+                <span class="number">07</span>
+                <h3>Mindestdienstgrade</h3>
+                <p>Voraussetzungen für Weiterbildungen und Spezialisierungen.</p>
+            </div>
+
+            <div class="category" onclick="openCategory('verwarnung')">
+                <span class="number">08</span>
+                <h3>Dienstverwarnungen</h3>
+                <p>Regelungen zum Umgang mit dienstlichen Verwarnungen.</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <section id="allgemein" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>01 – Allgemeine Regeln</h2>
+
+        <h3>Grundpflichten</h3>
+        <ul>
+            <li>Jeder Polizeibeamte hat sich respektvoll und professionell zu verhalten.</li>
+            <li>Die Befehle höherrangiger Beamter sind zu befolgen, sofern sie den geltenden Regeln entsprechen.</li>
+            <li>Teamarbeit und gegenseitige Unterstützung werden vorausgesetzt.</li>
+            <li>Die Bodycam ist während des Dienstes gemäß den geltenden Vorgaben zu verwenden.</li>
+            <li>Der Dienstgrad und die Dienststellung sind jederzeit zu respektieren.</li>
+        </ul>
+    </section>
+
+
+    <section id="einsatz" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>02 – Verhalten im Einsatz</h2>
+
+        <h3>Einsatzverhalten</h3>
+        <ul>
+            <li>Jeder Einsatz ist ruhig, koordiniert und professionell durchzuführen.</li>
+            <li>Die Einsatzleitung ist zu respektieren.</li>
+            <li>Unnötige Alleingänge sind zu vermeiden.</li>
+            <li>Der Taser darf nur bei entsprechender Bedrohung und im Rahmen der geltenden Regeln eingesetzt werden.</li>
+            <li>Die Schusswaffe ist das letzte Mittel und darf nur unter den dafür vorgesehenen Voraussetzungen eingesetzt werden.</li>
+            <li>Nach einem Einsatz sind wichtige Ereignisse zu dokumentieren.</li>
+        </ul>
+    </section>
+
+
+    <section id="festnahme" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>03 – Festnahmen & Strafmaßnahmen</h2>
+
+        <h3>Festnahmen</h3>
+        <ul>
+            <li>Festnahmen dürfen nur bei einem begründeten Verdacht oder einer entsprechenden rechtlichen Grundlage erfolgen.</li>
+            <li>Betroffene Personen sind über den Grund der Maßnahme zu informieren.</li>
+            <li>Die Verhältnismäßigkeit ist jederzeit zu beachten.</li>
+            <li>Festnahmen und relevante Maßnahmen sind ordnungsgemäß zu dokumentieren.</li>
+            <li>Ermittlungsakten sind vollständig und nachvollziehbar zu führen.</li>
+        </ul>
+    </section>
+
+
+    <section id="wache" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>04 – Verhalten in der Wache</h2>
+
+        <h3>Verhalten innerhalb der Dienststelle</h3>
+        <ul>
+            <li>In der Wache ist ein professionelles Verhalten einzuhalten.</li>
+            <li>Kollegen sind respektvoll zu behandeln.</li>
+            <li>Dienstfahrzeuge und Ausrüstung sind ordentlich zu behandeln.</li>
+            <li>Unnötige Störungen des Dienstbetriebes sind zu vermeiden.</li>
+            <li>Interne Angelegenheiten dürfen nicht unbefugt weitergegeben werden.</li>
+        </ul>
+    </section>
+
+
+    <section id="funk" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>05 – Verhalten im Funk</h2>
+
+        <h3>Funkdisziplin</h3>
+        <ul>
+            <li>Funkmeldungen sind kurz, verständlich und sachlich zu halten.</li>
+            <li>Andere Funkteilnehmer dürfen nicht unnötig unterbrochen werden.</li>
+            <li>Wichtige Einsatzmeldungen haben Vorrang.</li>
+            <li>Der Funk ist ausschließlich dienstlich zu nutzen.</li>
+            <li>Bei wichtigen Ereignissen ist die Leitstelle zeitnah zu informieren.</li>
+        </ul>
+    </section>
+
+
+    <section id="disziplin" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>06 – Disziplinarmaßnahmen & Konsequenzen</h2>
+
+        <h3>Verstöße</h3>
+        <ul>
+            <li>Verstöße gegen Dienstvorschriften können dienstliche Konsequenzen nach sich ziehen.</li>
+            <li>Die Schwere des Verstoßes ist bei der Entscheidung zu berücksichtigen.</li>
+            <li>Wiederholte Verstöße können zu verschärften Maßnahmen führen.</li>
+            <li>Disziplinarmaßnahmen sind nachvollziehbar zu dokumentieren.</li>
+            <li>Die Entscheidung erfolgt durch die dafür zuständige Führungsebene.</li>
+        </ul>
+    </section>
+
+
+    <section id="weiterbildung" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>07 – Mindestdienstgrade bei Weiterbildungen</h2>
+
+        <h3>Voraussetzungen</h3>
+        <p>
+            Für bestimmte Weiterbildungen und Spezialisierungen können
+            Mindestdienstgrade festgelegt werden.
+        </p>
+        <ul>
+            <li>Die jeweiligen Voraussetzungen sind vor der Bewerbung zu prüfen.</li>
+            <li>Die Teilnahme kann von Erfahrung und bisheriger Dienstleistung abhängen.</li>
+            <li>Die zuständige Ausbildungs- oder Führungsebene entscheidet über die Zulassung.</li>
+        </ul>
+        <p>
+            <strong>Hinweis:</strong> Die konkreten Mindestdienstgrade müssen
+            noch durch die Polizeiführung festgelegt werden.
+        </p>
+    </section>
+
+
+    <section id="verwarnung" class="content-section">
+        <button class="back-button" onclick="goBack()">← Zurück</button>
+        <h2>08 – Dienstverwarnungen</h2>
+
+        <h3>Verwarnungsverfahren</h3>
+        <ul>
+            <li>Dienstverwarnungen dienen der Ahndung und Dokumentation von Fehlverhalten.</li>
+            <li>Verwarnungen müssen nachvollziehbar begründet werden.</li>
+            <li>Der betroffene Mitarbeiter ist über den Grund zu informieren.</li>
+            <li>Verwarnungen werden entsprechend den internen Vorgaben dokumentiert.</li>
+            <li>Wiederholte Verstöße können weitere Disziplinarmaßnahmen nach sich ziehen.</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer>
+    Polizei NRP – Interner Dienstbereich
+</footer>
+
+<script>
+function openCategory(id) {
+    document.getElementById("overview").style.display = "none";
+
+    document.querySelectorAll(".content-section").forEach(section => {
+        section.classList.remove("active");
+    });
+
+    const selected = document.getElementById(id);
+
+    if (selected) {
+        selected.classList.add("active");
+        window.scrollTo(0, 0);
+    }
+}
+
+function goBack() {
+    document.querySelectorAll(".content-section").forEach(section => {
+        section.classList.remove("active");
+    });
+
+    document.getElementById("overview").style.display = "block";
+    window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
+
