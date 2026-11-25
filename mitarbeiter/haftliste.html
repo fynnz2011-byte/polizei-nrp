@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haftbefehle | Polizei NRP</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1424;
+    color: white;
+}
+
+header {
+    background: #101d32;
+    padding: 24px 7%;
+    border-bottom: 2px solid #d5b66c;
+}
+
+header h1 {
+    margin: 0;
+    color: #d5b66c;
+}
+
+nav { margin-top: 15px; }
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+nav a:hover { color: #d5b66c; }
+
+.container {
+    max-width: 1150px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2, h3 { color: #d5b66c; }
+
+.description {
+    color: #aebbd0;
+    line-height: 1.6;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.stat, .card {
+    background: #101d32;
+    border: 1px solid #263750;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.stat span {
+    display: block;
+    color: #aebbd0;
+    font-size: 14px;
+}
+
+.stat strong {
+    display: block;
+    color: #d5b66c;
+    font-size: 28px;
+    margin-top: 8px;
+}
+
+input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    margin: 10px 0 20px;
+    border-radius: 6px;
+    border: 1px solid #34445e;
+    background: #15243b;
+    color: white;
+}
+
+.table-wrapper { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th {
+    color: #d5b66c;
+    background: #192a43;
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #263750;
+}
+
+td { color: #dce3ed; }
+
+.status-open {
+    color: #e4bd70;
+    font-weight: bold;
+}
+
+.status-done {
+    color: #80c99a;
+    font-weight: bold;
+}
+
+.done-row { opacity: .55; }
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.done-button {
+    background: #d5b66c;
+    color: #101d32;
+}
+
+footer {
+    text-align: center;
+    color: #718096;
+    padding: 30px;
+}
+
+@media(max-width: 650px) {
+    .stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>POLIZEI NRP</h1>
+    <nav>
+        <a href="../index.html">Startseite</a>
+        <a href="index.html">Mitarbeiterbereich</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h2>Haftbefehlsverwaltung</h2>
+    <p class="description">
+        Interne Übersicht aller ausgestellten Haftbefehle
+        und deren Bearbeitungsstatus.
+    </p>
+
+    <section class="stats">
+        <div class="stat">
+            <span>Offene Haftbefehle</span>
+            <strong id="openCount">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Erledigte Haftbefehle</span>
+            <strong id="doneCount">0</strong>
+        </div>
+
+        <div class="stat">
+            <span>Gesamte Haftbefehle</span>
+            <strong id="totalCount">0</strong>
+        </div>
+    </section>
+
+    <section class="card">
+        <h3>Haftbefehle</h3>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Nach Täter oder Grund suchen..."
+            oninput="renderTable()"
+        >
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Täter</th>
+                        <th>Haftzeit</th>
+                        <th>Grund</th>
+                        <th>Ausgestellt von</th>
+                        <th>Status</th>
+                        <th>Aktion</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+
+        <p id="emptyMessage" class="description"></p>
+    </section>
+
+</main>
+
+<footer>
+    Polizei NRP | Interner Mitarbeiterbereich
+</footer>
+
+<script>
+
+// HIER NEUE HAFTBEFEHLE EINTRAGEN
+
+const haftbefehle = [
+    /*
+    {
+        taeter: "Max Mustermann",
+        haftzeit: "30 Hafteinheiten",
+        grund: "§ 01 StGB",
+        aussteller: "Dienstnummer 25",
+        erledigt: false
+    }
+    */
+];
+
+// TABELLE ANZEIGEN
+
+function renderTable() {
+    const body = document.getElementById("tableBody");
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    body.innerHTML = "";
+
+    const filtered = haftbefehle.filter(e =>
+        e.taeter.toLowerCase().includes(search) ||
+        e.grund.toLowerCase().includes(search)
+    );
+
+    filtered.forEach(entry => {
+        const originalIndex = haftbefehle.indexOf(entry);
+
+        const row = document.createElement("tr");
+
+        if (entry.erledigt) {
+            row.classList.add("done-row");
+        }
+
+        const values = [
+            entry.taeter,
+            entry.haftzeit,
+            entry.grund,
+            entry.aussteller
+        ];
+
+        values.forEach(value => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+
+        const statusCell = document.createElement("td");
+        statusCell.textContent = entry.erledigt
+            ? "Erledigt"
+            : "Offen";
+        statusCell.className = entry.erledigt
+            ? "status-done"
+            : "status-open";
+        row.appendChild(statusCell);
+
+        const actionCell = document.createElement("td");
+
+        const button = document.createElement("button");
+        button.className = "done-button";
+        button.textContent = entry.erledigt
+            ? "Zurücksetzen"
+            : "Abhaken";
+
+        button.onclick = () => {
+            entry.erledigt = !entry.erledigt;
+            renderTable();
+        };
+
+        actionCell.appendChild(button);
+        row.appendChild(actionCell);
+
+        body.appendChild(row);
+    });
+
+    document.getElementById("emptyMessage").textContent =
+        filtered.length === 0
+            ? "Keine Haftbefehle vorhanden."
+            : "";
+
+    updateStats();
+}
+
+// STATISTIKEN
+
+function updateStats() {
+    const total = haftbefehle.length;
+    const done = haftbefehle.filter(e => e.erledigt).length;
+    const open = total - done;
+
+    document.getElementById("openCount").textContent = open;
+    document.getElementById("doneCount").textContent = done;
+    document.getElementById("totalCount").textContent = total;
+}
+
+renderTable();
+
+</script>
+
+</body>
+</html>
