@@ -135,6 +135,56 @@ main {
     margin: 0;
 }
 
+/* Besonderes Rangabzeichen Innenminister */
+
+.epaulette.minister {
+    background: linear-gradient(120deg, #E8C875, #8E6A32, #F4DFA0);
+    filter: drop-shadow(0 3px 8px rgba(20, 8, 35, .9));
+}
+
+.epaulette.minister .epaulette-inner {
+    background: linear-gradient(145deg, #513568, #21152F 70%, #160E20);
+}
+
+.epaulette.minister .pin {
+    background: radial-gradient(circle at 35% 30%, #FFF3C9, #E8C875 65%, #9B7130);
+    border-color: #FFF0B2;
+}
+
+.epaulette.minister .symbols {
+    margin-top: 24px;
+    gap: 2px;
+    color: #F1D58B;
+    text-shadow: 0 1px 4px #12091B;
+}
+
+.minister-emblem {
+    font-size: 39px;
+    line-height: 42px;
+    color: #F1D58B;
+}
+
+.minister-star {
+    font-size: 27px;
+    line-height: 27px;
+    color: #FFF0B2;
+}
+
+.rank-card.minister-card {
+    border: 1px solid #B99A59;
+    background: linear-gradient(145deg, #38244D, #21152F);
+}
+
+.rank-card.minister-card:hover {
+    border-color: #F1D58B;
+    background: linear-gradient(145deg, #49305F, #2B1B3C);
+}
+
+.rank-card.minister-card h3,
+.rank-card.minister-card p {
+    color: #E8C875;
+}
+
 /* Rangabzeichen */
 
 .epaulette {
@@ -256,6 +306,16 @@ main {
 .modal .book { font-size: 48px; line-height: 50px; }
 .modal .laurel { font-size: 57px; line-height: 55px; }
 
+.modal .minister-emblem {
+    font-size: 65px;
+    line-height: 70px;
+}
+
+.modal .minister-star {
+    font-size: 43px;
+    line-height: 45px;
+}
+
 .close {
     position: absolute;
     top: 10px;
@@ -336,6 +396,12 @@ footer {
 <script>
 const groups = [
     {
+        name: "Staatliche Führung",
+        ranks: [
+            ["IM", "Innenminister", "minister", 0, 0]
+        ]
+    },
+    {
         name: "Höchster Dienst",
         ranks: [
             ["LPP", "Landespolizeipräsident", "laurel", 1, 0],
@@ -387,8 +453,13 @@ const groups = [
 
 function makeBadge(type, stars, bars) {
     let symbols = "";
+    const badgeClass = type === "minister"
+        ? "epaulette minister"
+        : "epaulette";
 
-    if (type === "laurel") {
+    if (type === "minister") {
+        symbols = '<div class="minister-emblem">✦</div><div class="minister-star">★</div>';
+    } else if (type === "laurel") {
         symbols = '<div class="laurel">❧</div>';
         if (stars > 1) symbols += '<div class="star">★</div>';
     } else if (type === "book") {
@@ -410,7 +481,7 @@ function makeBadge(type, stars, bars) {
     }
 
     return `
-        <div class="epaulette">
+        <div class="${badgeClass}">
             <div class="epaulette-inner">
                 <div class="pin"></div>
                 <div class="symbols">${symbols}</div>
@@ -436,7 +507,9 @@ groups.forEach(group => {
         const [abbr, name, type, stars, bars] = rank;
 
         const card = document.createElement("button");
-        card.className = "rank-card";
+        card.className = type === "minister"
+            ? "rank-card minister-card"
+            : "rank-card";
         card.type = "button";
         card.innerHTML = `
             ${makeBadge(type, stars, bars)}
