@@ -1,1 +1,268 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waffengesetze | Polizei NRP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1424;
+    color: #fff;
+}
+
+header {
+    background: #101d32;
+    padding: 22px 7%;
+    border-bottom: 2px solid #d5b66c;
+}
+
+header h1 {
+    margin: 0;
+    color: #d5b66c;
+    font-size: 25px;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #ddd;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: #d5b66c;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #d5b66c;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #b8c2d1;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+input, select {
+    background: #15243b;
+    border: 1px solid #34445e;
+    color: white;
+    padding: 12px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+input {
+    flex: 1;
+    min-width: 220px;
+}
+
+select {
+    min-width: 190px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: #101d32;
+    border: 1px solid #263750;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 750px;
+}
+
+th {
+    background: #192a43;
+    color: #d5b66c;
+    text-align: left;
+    padding: 15px;
+}
+
+td {
+    padding: 14px 15px;
+    border-top: 1px solid #263750;
+    color: #dce3ed;
+}
+
+tr:hover td {
+    background: #17263d;
+}
+
+.paragraph {
+    color: #d5b66c;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.status {
+    color: #e0a0a0;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    color: #718096;
+    padding: 30px;
+    font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>POLIZEI NRP</h1>
+    <nav>
+        <a href="../index.html">Startseite</a>
+        <a href="index.html">Mitarbeiterbereich</a>
+        <a href="gesetze.html">Gesetze</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h2>Waffen- und Explosivstoffgesetz</h2>
+
+    <p class="description">
+        Hier findest du die geltenden Vorschriften zum Besitz,
+        Mitführen und zur Verwendung von Waffen und explosiven
+        Gegenständen innerhalb des Roleplays.
+        Die aufgeführten Verbote gelten für alle Spieler und Fraktionen.
+    </p>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="Gesetz oder Begriff suchen..."
+            onkeyup="filterTable()"
+        >
+
+        <select id="filter" onchange="filterTable()">
+            <option value="alle">Alle Regelungen</option>
+            <option value="verboten">Verbotene Gegenstände</option>
+            <option value="allgemein">Allgemeine Vorschriften</option>
+        </select>
+    </div>
+
+    <div class="table-wrapper">
+        <table id="lawTable">
+            <thead>
+                <tr>
+                    <th>PARAGRAPH</th>
+                    <th>GESETZ</th>
+                    <th>REGELUNG</th>
+                    <th>ANMERKUNGEN</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr data-category="allgemein">
+                    <td class="paragraph">§ 01</td>
+                    <td>Allgemeines Verbot</td>
+                    <td>Verboten</td>
+                    <td>Unzulässige Waffen und explosive Gegenstände dürfen nicht mitgeführt oder verwendet werden.</td>
+                </tr>
+
+                <tr data-category="verboten">
+                    <td class="paragraph">§ 02</td>
+                    <td>Explosivstoffe</td>
+                    <td class="status">Verboten</td>
+                    <td>Explosive Gegenstände und entsprechende Ausrüstung sind im Roleplay untersagt.</td>
+                </tr>
+
+                <tr data-category="verboten">
+                    <td class="paragraph">§ 03</td>
+                    <td>Präzisionswaffen</td>
+                    <td class="status">Verboten</td>
+                    <td>Sniper- und vergleichbare Präzisionswaffen sind nicht zugelassen.</td>
+                </tr>
+
+                <tr data-category="verboten">
+                    <td class="paragraph">§ 04</td>
+                    <td>Schrotflinten</td>
+                    <td class="status">Verboten</td>
+                    <td>Schrotflinten sind im Roleplay grundsätzlich nicht zugelassen.</td>
+                </tr>
+
+                <tr data-category="verboten">
+                    <td class="paragraph">§ 05</td>
+                    <td>Weitere Sonderwaffen</td>
+                    <td class="status">Verboten</td>
+                    <td>Weitere durch die Serverleitung als unzulässig eingestufte Waffen sind verboten.</td>
+                </tr>
+
+                <tr data-category="allgemein">
+                    <td class="paragraph">§ 06</td>
+                    <td>Ausnahmen</td>
+                    <td>Genehmigung erforderlich</td>
+                    <td>Ausnahmen können ausschließlich durch die zuständige Serverleitung genehmigt werden.</td>
+                </tr>
+
+                <tr data-category="allgemein">
+                    <td class="paragraph">§ 07</td>
+                    <td>Verstöße</td>
+                    <td>Strafbar im RP</td>
+                    <td>Verstöße können zur Sicherstellung der Gegenstände und zu serverinternen Maßnahmen führen.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<footer>
+    Polizei NRP | Internes Regelwerk
+</footer>
+
+<script>
+function filterTable() {
+    const search = document.getElementById("search").value.toLowerCase();
+    const filter = document.getElementById("filter").value;
+    const rows = document.querySelectorAll("#lawTable tbody tr");
+
+    rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        const category = row.dataset.category;
+
+        const matchesSearch = text.includes(search);
+        const matchesFilter =
+            filter === "alle" || category === filter;
+
+        row.style.display =
+            matchesSearch && matchesFilter ? "" : "none";
+    });
+}
+</script>
+
+</body>
+</html>
