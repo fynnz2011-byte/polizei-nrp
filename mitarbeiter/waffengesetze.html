@@ -7,9 +7,7 @@
 <title>Waffengesetze | Polizei NRP</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -30,9 +28,7 @@ header h1 {
     font-size: 25px;
 }
 
-nav {
-    margin-top: 15px;
-}
+nav { margin-top: 15px; }
 
 nav a {
     color: #ddd;
@@ -41,12 +37,10 @@ nav a {
     font-size: 14px;
 }
 
-nav a:hover {
-    color: #d5b66c;
-}
+nav a:hover { color: #d5b66c; }
 
 .container {
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 40px auto;
     padding: 0 20px;
 }
@@ -83,9 +77,7 @@ input {
     min-width: 220px;
 }
 
-select {
-    min-width: 190px;
-}
+select { min-width: 190px; }
 
 .table-wrapper {
     overflow-x: auto;
@@ -97,7 +89,7 @@ select {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 750px;
+    min-width: 1050px;
 }
 
 th {
@@ -111,16 +103,20 @@ td {
     padding: 14px 15px;
     border-top: 1px solid #263750;
     color: #dce3ed;
+    vertical-align: top;
 }
 
-tr:hover td {
-    background: #17263d;
-}
+tr:hover td { background: #17263d; }
 
 .paragraph {
     color: #d5b66c;
     font-weight: bold;
     white-space: nowrap;
+}
+
+.fine {
+    white-space: nowrap;
+    font-weight: bold;
 }
 
 .status {
@@ -144,104 +140,217 @@ footer {
     <nav>
         <a href="../index.html">Startseite</a>
         <a href="index.html">Mitarbeiterbereich</a>
-        <a href="gesetze.html">Gesetze</a>
     </nav>
 </header>
 
 <div class="container">
 
-    <h2>Waffen- und Explosivstoffgesetz</h2>
+<h2>Waffen- und Explosivstoffgesetz</h2>
 
-    <p class="description">
-        Hier findest du die geltenden Vorschriften zum Besitz,
-        Mitführen und zur Verwendung von Waffen und explosiven
-        Gegenständen innerhalb des Roleplays.
-        Die aufgeführten Verbote gelten für alle Spieler und Fraktionen.
-    </p>
+<p class="description">
+    Dieses Gesetz regelt den Umgang mit Waffen und explosiven
+    Gegenständen innerhalb des Roleplays. Verstöße werden mit
+    Geldstrafen und gegebenenfalls zusätzlichen Maßnahmen geahndet.
+</p>
 
-    <div class="search-box">
-        <input
-            type="text"
-            id="search"
-            placeholder="Gesetz oder Begriff suchen..."
-            onkeyup="filterTable()"
-        >
+<div class="search-box">
+    <input
+        type="text"
+        id="search"
+        placeholder="Gesetz oder Begriff suchen..."
+        onkeyup="filterTable()"
+    >
 
-        <select id="filter" onchange="filterTable()">
-            <option value="alle">Alle Regelungen</option>
-            <option value="verboten">Verbotene Gegenstände</option>
-            <option value="allgemein">Allgemeine Vorschriften</option>
-        </select>
-    </div>
+    <select id="filter" onchange="filterTable()">
+        <option value="alle">Alle Paragraphen</option>
+        <option value="verboten">Verbotene Gegenstände</option>
+        <option value="allgemein">Allgemeine Verstöße</option>
+        <option value="genehmigung">Genehmigungen</option>
+    </select>
+</div>
 
-    <div class="table-wrapper">
-        <table id="lawTable">
-            <thead>
-                <tr>
-                    <th>PARAGRAPH</th>
-                    <th>GESETZ</th>
-                    <th>REGELUNG</th>
-                    <th>ANMERKUNGEN</th>
-                </tr>
-            </thead>
+<div class="table-wrapper">
+<table id="lawTable">
+<thead>
+<tr>
+    <th>PARAGRAPH</th>
+    <th>GESETZ</th>
+    <th>GELDSTRAFE</th>
+    <th>ZUSATZSTRAFEN</th>
+    <th>ANMERKUNGEN</th>
+</tr>
+</thead>
 
-            <tbody>
-                <tr data-category="allgemein">
-                    <td class="paragraph">§ 01</td>
-                    <td>Allgemeines Verbot</td>
-                    <td>Verboten</td>
-                    <td>Unzulässige Waffen und explosive Gegenstände dürfen nicht mitgeführt oder verwendet werden.</td>
-                </tr>
+<tbody>
 
-                <tr data-category="verboten">
-                    <td class="paragraph">§ 02</td>
-                    <td>Explosivstoffe</td>
-                    <td class="status">Verboten</td>
-                    <td>Explosive Gegenstände und entsprechende Ausrüstung sind im Roleplay untersagt.</td>
-                </tr>
+<tr data-category="verboten">
+<td class="paragraph">§ 01</td>
+<td>Besitz verbotener Waffen</td>
+<td class="fine">2.500,00 €</td>
+<td>Einziehung des Gegenstandes</td>
+<td>Besitz eines durch die Serverleitung verbotenen Gegenstandes.</td>
+</tr>
 
-                <tr data-category="verboten">
-                    <td class="paragraph">§ 03</td>
-                    <td>Präzisionswaffen</td>
-                    <td class="status">Verboten</td>
-                    <td>Sniper- und vergleichbare Präzisionswaffen sind nicht zugelassen.</td>
-                </tr>
+<tr data-category="verboten">
+<td class="paragraph">§ 02</td>
+<td>Mitführen verbotener Waffen</td>
+<td class="fine">3.000,00 €</td>
+<td>Einziehung des Gegenstandes</td>
+<td>Mitführen eines im Roleplay nicht zugelassenen Gegenstandes.</td>
+</tr>
 
-                <tr data-category="verboten">
-                    <td class="paragraph">§ 04</td>
-                    <td>Schrotflinten</td>
-                    <td class="status">Verboten</td>
-                    <td>Schrotflinten sind im Roleplay grundsätzlich nicht zugelassen.</td>
-                </tr>
+<tr data-category="verboten">
+<td class="paragraph">§ 03</td>
+<td>Besitz verbotener Explosivstoffe</td>
+<td class="fine">5.000,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Besitz von im Roleplay verbotenen explosiven Gegenständen.</td>
+</tr>
 
-                <tr data-category="verboten">
-                    <td class="paragraph">§ 05</td>
-                    <td>Weitere Sonderwaffen</td>
-                    <td class="status">Verboten</td>
-                    <td>Weitere durch die Serverleitung als unzulässig eingestufte Waffen sind verboten.</td>
-                </tr>
+<tr data-category="verboten">
+<td class="paragraph">§ 04</td>
+<td>Mitführen verbotener Explosivstoffe</td>
+<td class="fine">6.000,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Mitführen von im Roleplay verbotenen explosiven Gegenständen.</td>
+</tr>
 
-                <tr data-category="allgemein">
-                    <td class="paragraph">§ 06</td>
-                    <td>Ausnahmen</td>
-                    <td>Genehmigung erforderlich</td>
-                    <td>Ausnahmen können ausschließlich durch die zuständige Serverleitung genehmigt werden.</td>
-                </tr>
+<tr data-category="verboten">
+<td class="paragraph">§ 05</td>
+<td>Besitz verbotener Präzisionswaffen</td>
+<td class="fine">4.000,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Besitz einer nicht zugelassenen Präzisionswaffe.</td>
+</tr>
 
-                <tr data-category="allgemein">
-                    <td class="paragraph">§ 07</td>
-                    <td>Verstöße</td>
-                    <td>Strafbar im RP</td>
-                    <td>Verstöße können zur Sicherstellung der Gegenstände und zu serverinternen Maßnahmen führen.</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<tr data-category="verboten">
+<td class="paragraph">§ 06</td>
+<td>Besitz verbotener Schrotflinten</td>
+<td class="fine">3.500,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Besitz einer im Roleplay nicht zugelassenen Schrotflinte.</td>
+</tr>
+
+<tr data-category="verboten">
+<td class="paragraph">§ 07</td>
+<td>Verwendung verbotener Waffen</td>
+<td class="fine">5.000,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Verwendung eines verbotenen Gegenstandes im Roleplay.</td>
+</tr>
+
+<tr data-category="verboten">
+<td class="paragraph">§ 08</td>
+<td>Verwendung verbotener Explosivstoffe</td>
+<td class="fine">7.500,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Verwendung eines verbotenen explosiven Gegenstandes.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 09</td>
+<td>Besitz ohne Waffengenehmigung</td>
+<td class="fine">1.500,00 €</td>
+<td>Einziehung des Gegenstandes</td>
+<td>Besitz eines genehmigungspflichtigen Gegenstandes ohne gültige RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 10</td>
+<td>Führen ohne Waffengenehmigung</td>
+<td class="fine">2.000,00 €</td>
+<td>Einziehung; mögliche Entziehung der Genehmigung</td>
+<td>Führen eines genehmigungspflichtigen Gegenstandes ohne gültige RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 11</td>
+<td>Missbrauch einer Waffengenehmigung</td>
+<td class="fine">2.500,00 €</td>
+<td>Entzug der Waffengenehmigung</td>
+<td>Missbräuchliche Verwendung einer erteilten RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 12</td>
+<td>Weitergabe einer Waffe</td>
+<td class="fine">1.500,00 €</td>
+<td>Einziehung; mögliche Entziehung der Genehmigung</td>
+<td>Unzulässige Weitergabe eines genehmigungspflichtigen Gegenstandes.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 13</td>
+<td>Unerlaubter Waffenhandel</td>
+<td class="fine">5.000,00 €</td>
+<td>Einziehung; Entzug der Waffengenehmigung</td>
+<td>Handel mit Gegenständen entgegen den geltenden RP-Regelungen.</td>
+</tr>
+
+<tr data-category="genehmigung">
+<td class="paragraph">§ 14</td>
+<td>Fälschung einer Waffengenehmigung</td>
+<td class="fine">4.000,00 €</td>
+<td>Entzug der Waffengenehmigung</td>
+<td>Vorlegen oder Verwenden einer gefälschten RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 15</td>
+<td>Verstoß gegen Auflagen</td>
+<td class="fine">1.000,00 €</td>
+<td>Verwarnung</td>
+<td>Missachtung ausdrücklich festgelegter Auflagen einer RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 16</td>
+<td>Unberechtigtes Tragen einer Waffe</td>
+<td class="fine">1.500,00 €</td>
+<td>Einziehung; Verwarnung</td>
+<td>Tragen eines genehmigungspflichtigen Gegenstandes ohne entsprechende Berechtigung.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 17</td>
+<td>Missachtung einer Sicherstellungsanordnung</td>
+<td class="fine">2.000,00 €</td>
+<td>Zusätzliche Disziplinarmaßnahme</td>
+<td>Missachtung einer rechtmäßigen serverinternen Anordnung zur Sicherstellung.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 18</td>
+<td>Falsche Angaben zur Waffengenehmigung</td>
+<td class="fine">1.500,00 €</td>
+<td>Verwarnung; mögliche Entziehung der Genehmigung</td>
+<td>Bewusst falsche Angaben im Zusammenhang mit einer RP-Genehmigung.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 19</td>
+<td>Wiederholter Verstoß gegen das Waffengesetz</td>
+<td class="fine">3.500,00 €</td>
+<td>Entzug der Waffengenehmigung</td>
+<td>Erneuter Verstoß gegen dieses Gesetz innerhalb eines festgelegten Zeitraums.</td>
+</tr>
+
+<tr data-category="allgemein">
+<td class="paragraph">§ 20</td>
+<td>Schwerwiegender Verstoß gegen das Waffengesetz</td>
+<td class="fine">5.000,00 €</td>
+<td>Entzug der Waffengenehmigung; Prüfung durch die Leitung</td>
+<td>Besonders schwerwiegende oder wiederholte Verstöße gegen dieses Gesetz.</td>
+</tr>
+
+</tbody>
+</table>
+</div>
 
 </div>
 
 <footer>
-    Polizei NRP | Internes Regelwerk
+Polizei NRP | Internes Regelwerk
 </footer>
 
 <script>
@@ -255,8 +364,7 @@ function filterTable() {
         const category = row.dataset.category;
 
         const matchesSearch = text.includes(search);
-        const matchesFilter =
-            filter === "alle" || category === filter;
+        const matchesFilter = filter === "alle" || category === filter;
 
         row.style.display =
             matchesSearch && matchesFilter ? "" : "none";
