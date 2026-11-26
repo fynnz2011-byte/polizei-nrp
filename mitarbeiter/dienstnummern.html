@@ -15,146 +15,119 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #0b1424;
-    color: white;
+    color: #ffffff;
 }
 
 header {
     background: #101d32;
-    padding: 24px 7%;
+    padding: 25px 20px;
+    text-align: center;
     border-bottom: 2px solid #d5b66c;
 }
 
 header h1 {
     margin: 0;
     color: #d5b66c;
+    font-size: 28px;
 }
 
-nav {
-    margin-top: 15px;
-}
-
-nav a {
-    color: #ddd;
-    text-decoration: none;
-    margin-right: 20px;
-}
-
-nav a:hover {
-    color: #d5b66c;
+header p {
+    color: #b8c2d3;
+    margin: 8px 0 0;
 }
 
 .container {
-    max-width: 1250px;
-    margin: 40px auto;
+    max-width: 1100px;
+    margin: 35px auto;
     padding: 0 20px;
 }
 
-h2, h3 {
+.back {
+    display: inline-block;
     color: #d5b66c;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 
-.description {
-    color: #aebbd0;
-    line-height: 1.6;
+.back:hover {
+    text-decoration: underline;
 }
 
-.card {
-    background: #101d32;
-    border: 1px solid #263750;
-    border-radius: 10px;
-    padding: 22px;
-    margin-top: 25px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.stat {
-    background: #15243b;
+.info {
+    background: #14243b;
+    border: 1px solid #263a58;
     padding: 18px;
-    border-radius: 9px;
-    border: 1px solid #34445e;
+    border-radius: 10px;
+    margin-bottom: 22px;
+    color: #cbd5e1;
 }
 
-.stat span {
-    color: #aebbd0;
-    font-size: 13px;
-}
-
-.stat strong {
-    display: block;
-    color: #d5b66c;
-    font-size: 26px;
-    margin-top: 8px;
-}
-
-input {
+.search {
     width: 100%;
-    max-width: 400px;
-    padding: 13px;
-    background: #15243b;
-    color: white;
+    padding: 14px;
+    border-radius: 8px;
     border: 1px solid #34445e;
-    border-radius: 7px;
-    margin: 12px 0 20px;
+    background: #14243b;
+    color: white;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.search:focus {
+    outline: none;
+    border-color: #d5b66c;
 }
 
 .table-wrapper {
     overflow-x: auto;
+    border-radius: 10px;
+    border: 1px solid #263a58;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 850px;
+    min-width: 750px;
+    background: #101d32;
 }
 
 th {
-    background: #192a43;
+    background: #1b2d48;
     color: #d5b66c;
     text-align: left;
-}
-
-th, td {
-    padding: 14px;
-    border-bottom: 1px solid #263750;
+    padding: 15px;
 }
 
 td {
-    color: #dce3ed;
+    padding: 13px 15px;
+    border-top: 1px solid #263a58;
+    color: #e2e8f0;
 }
 
 tr:hover td {
-    background: #17263d;
+    background: #172943;
 }
 
-.free {
-    color: #8290a5;
-}
-
-.occupied {
-    color: #80c99a;
+.number {
+    color: #d5b66c;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .rank {
     color: #d5b66c;
 }
 
+.free {
+    color: #8290a5;
+    font-style: italic;
+}
+
 footer {
     text-align: center;
     color: #718096;
-    padding: 30px;
-}
-
-@media(max-width: 650px) {
-    .stats {
-        grid-template-columns: 1fr;
-    }
+    padding: 30px 15px;
+    font-size: 13px;
 }
 </style>
 </head>
@@ -162,233 +135,169 @@ footer {
 <body>
 
 <header>
-    <h1>POLIZEI NRP</h1>
-    <nav>
-        <a href="../index.html">Startseite</a>
-        <a href="index.html">Mitarbeiterbereich</a>
-    </nav>
+    <h1>Polizei NRP</h1>
+    <p>Dienstnummernverzeichnis</p>
 </header>
 
-<main class="container">
+<div class="container">
 
-    <h2>Dienstnummernverzeichnis</h2>
+    <a class="back" href="../index.html">← Zur Hauptseite</a>
 
-    <p class="description">
-        Offizielles Verzeichnis der Dienstnummern,
-        Polizeibeamten und deren Dienstgrade.
-    </p>
+    <div class="info">
+        Hier befindet sich das Dienstnummernverzeichnis der Polizei NRP.
+        Die Übersicht enthält die vergebenen Dienstnummern, Namen und Dienstgrade.
+    </div>
 
-    <section class="stats">
-        <div class="stat">
-            <span>Gesamte Dienstnummern</span>
-            <strong id="total">100</strong>
-        </div>
+    <input
+        type="text"
+        class="search"
+        id="search"
+        placeholder="Dienstnummer, Name oder Dienstgrad suchen..."
+        oninput="renderTable()"
+    >
 
-        <div class="stat">
-            <span>Besetzte Dienstnummern</span>
-            <strong id="occupied">0</strong>
-        </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Dienstnummer</th>
+                    <th>Name</th>
+                    <th>Roblox-Name</th>
+                    <th>Anzeigename</th>
+                    <th>Dienstgrad</th>
+                </tr>
+            </thead>
 
-        <div class="stat">
-            <span>Freie Dienstnummern</span>
-            <strong id="free">0</strong>
-        </div>
-    </section>
+            <tbody id="employeeTable"></tbody>
+        </table>
+    </div>
 
-    <section class="card">
-
-        <h3>Polizeibeamte</h3>
-
-        <input
-            type="text"
-            id="search"
-            placeholder="Dienstnummer, Name oder Dienstgrad suchen..."
-            oninput="renderTable()"
-        >
-
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Dienstnummer</th>
-                        <th>Name</th>
-                        <th>Roblox-Name</th>
-                        <th>Anzeigename</th>
-                        <th>Dienstgrad / Phase</th>
-                    </tr>
-                </thead>
-
-                <tbody id="employeeTable"></tbody>
-            </table>
-        </div>
-
-        <p class="description" id="emptyMessage"></p>
-
-    </section>
-
-</main>
+</div>
 
 <footer>
     Polizei NRP | Internes Dienstnummernverzeichnis
 </footer>
 
 <script>
-
-// MITARBEITER HIER EINTRAGEN
-
 const employees = {
-
-    "15/01": {
+    1: {
         name: "Fynn Mayer",
         roblox: "@Hhhhgffzfzguv",
         display: "SCP_035",
         rank: "LPP | Landespolizeipräsident"
     },
 
-    "15/02": {
+    2: {
         name: "Can Kowalcyk",
         roblox: "@canderking1106",
         display: "C4NX",
         rank: "LPVP | Landespolizeivizepräsident"
     },
 
-    "15/03": {
+    3: {
         name: "Vladimir Aqua",
         roblox: "@aqualost_334",
         display: "aquaboy_229",
         rank: "PP | Polizeipräsident"
     },
 
-    "15/05": {
+    5: {
         name: "Finley Kowalczyk",
         roblox: "@Fillusch",
         display: "Iglo_Fischring",
-        rank: "POR | Polizeioberrat"
+        rank: "LPD | Leitender Polizeidirektor"
     },
 
-    "15/12": {
+    12: {
         name: "Yanbo Schmidt",
         roblox: "Starchriss77",
         display: "Yanbo13",
         rank: "PHK | Polizeihauptkommissar"
     },
 
-    "15/45": {
+    45: {
         name: "Vincent Müller",
         roblox: "@VinOver0",
         display: "VinOver0",
         rank: "T-LAB | Test LTD. Ausbilder"
     },
 
-    "15/55": {
+    55: {
         name: "Wolf Grab",
         roblox: "WolfWolfRTXX",
         display: "WolfRTXX",
         rank: "PRA | Polizeiratanwärter"
     },
 
-    "15/99": {
+    99: {
         name: "Tom Wagner",
-        roblox: "",
-        display: "",
+        roblox: "Nicht angegeben",
+        display: "Nicht angegeben",
         rank: "POR | Polizeioberrat"
     }
-
 };
 
-// WEITERE MITARBEITER:
-// Beispiel:
-//
-// "15/20": {
-//     name: "Max Mustermann",
-//     roblox: "@RobloxName",
-//     display: "Anzeigename",
-//     rank: "PK | Polizeikommissar"
-// },
-
-// TABELLE ERSTELLEN
-
 function renderTable() {
-
     const table = document.getElementById("employeeTable");
-    const search = document.getElementById("search")
-        .value.toLowerCase();
+    const search = document.getElementById("search").value.toLowerCase();
 
     table.innerHTML = "";
 
-    let occupied = 0;
-    let free = 0;
-
     for (let i = 1; i <= 100; i++) {
-
         const number = "15/" + String(i).padStart(2, "0");
-        const employee = employees[number];
+        const employee = employees[i];
 
-        if (employee) {
-            occupied++;
-        } else {
-            free++;
+        const name = employee ? employee.name : "Nicht besetzt";
+        const roblox = employee ? employee.roblox : "—";
+        const display = employee ? employee.display : "—";
+        const rank = employee ? employee.rank : "—";
+
+        const searchText = (
+            number + " " +
+            name + " " +
+            roblox + " " +
+            display + " " +
+            rank
+        ).toLowerCase();
+
+        if (!searchText.includes(search)) {
+            continue;
         }
-
-        const values = employee
-            ? [
-                number,
-                employee.name,
-                employee.roblox,
-                employee.display,
-                employee.rank
-            ]
-            : [
-                number,
-                "Nicht besetzt",
-                "—",
-                "—",
-                "—"
-            ];
-
-        const matches = values.join(" ").toLowerCase().includes(search);
-
-        if (!matches) continue;
 
         const row = document.createElement("tr");
 
-        values.forEach((value, index) => {
+        const values = [
+            number,
+            name,
+            roblox,
+            display,
+            rank
+        ];
 
+        values.forEach((value, index) => {
             const cell = document.createElement("td");
             cell.textContent = value;
 
-            if (!employee) {
+            if (index === 0) {
+                cell.className = "number";
+            }
+
+            if (index === 1 && !employee) {
                 cell.className = "free";
             }
 
-            if (index === 0) {
-                cell.classList.add("rank");
-            }
-
-            if (index === 1 && employee) {
-                cell.classList.add("occupied");
+            if (index === 4 && employee) {
+                cell.className = "rank";
             }
 
             row.appendChild(cell);
-
         });
 
         table.appendChild(row);
-
     }
-
-    document.getElementById("occupied").textContent = occupied;
-    document.getElementById("free").textContent = free;
-
-    document.getElementById("emptyMessage").textContent =
-        table.children.length === 0
-            ? "Keine passenden Dienstnummern gefunden."
-            : "";
-
 }
 
 renderTable();
-
 </script>
 
 </body>
