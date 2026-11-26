@@ -41,6 +41,9 @@
         }
 
         .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-size: 23px;
             font-weight: bold;
             letter-spacing: 1px;
@@ -48,6 +51,12 @@
 
         .brand span {
             color: var(--gold);
+        }
+
+        .brand img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
         }
 
         nav {
@@ -200,27 +209,19 @@
                 padding: 45px 5%;
             }
         }
-        .brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.brand img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
     </style>
 </head>
 
 <body>
 
 <header>
-    <div class="brand"><img src="logo.jpg" alt="Polizei NRP Logo"> POLIZEI <span>NRP</span></div>
+    <div class="brand">
+        <img src="logo.jpg" alt="Polizei NRP Logo">
+        POLIZEI <span>NRP</span>
+    </div>
 
     <nav>
-        <a href="index.html">Startseite</a>
+        <a href="https://fynnz2011-byte.github.io/polizei-nrp/">Startseite</a>
         <a href="organisation.html" class="active">Organisation</a>
         <a href="dienstgrade.html">Dienstgrade</a>
         <a href="nachrichten.html">Nachrichten</a>
@@ -239,6 +240,7 @@
 </section>
 
 <main>
+
     <div class="heading">
         <small>Abteilungen</small>
         <h2>Unsere sieben Bereiche</h2>
@@ -247,91 +249,88 @@
 
     <div class="departments">
 
-        
-<article class="department">
-    <h3>SEK</h3>
-    <p>
-        Zuständig für besondere Einsatzlagen, die eine speziell
-        ausgebildete und koordinierte Einheit erfordern.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>SEK</h3>
+            <p>
+                Zuständig für besondere Einsatzlagen, die eine speziell
+                ausgebildete und koordinierte Einheit erfordern.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Kriminalpolizei</h3>
-    <p>
-        Verantwortlich für die Bearbeitung und Aufklärung von
-        Straftaten sowie die Durchführung kriminalpolizeilicher
-        Ermittlungen.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Kriminalpolizei</h3>
+            <p>
+                Verantwortlich für die Bearbeitung und Aufklärung von
+                Straftaten sowie die Durchführung kriminalpolizeilicher
+                Ermittlungen.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Zivilpolizei</h3>
-    <p>
-        Übernimmt zivile Polizeiaufgaben und unterstützt andere
-        Einheiten bei polizeilichen Maßnahmen.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Zivilpolizei</h3>
+            <p>
+                Übernimmt zivile Polizeiaufgaben und unterstützt andere
+                Einheiten bei polizeilichen Maßnahmen.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Ausbildungsabteilung</h3>
-    <p>
-        Verantwortlich für die Ausbildung neuer Polizeianwärter,
-        Schulungen und die Überprüfung des Ausbildungsstandes.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Ausbildungsabteilung</h3>
+            <p>
+                Verantwortlich für die Ausbildung neuer Polizeianwärter,
+                Schulungen und die Überprüfung des Ausbildungsstandes.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Polizeileitung</h3>
-    <p>
-        Verantwortlich für die Führung, Organisation und
-        strategische Ausrichtung der Polizei NRP.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Polizeileitung</h3>
+            <p>
+                Verantwortlich für die Führung, Organisation und
+                strategische Ausrichtung der Polizei NRP.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Verwaltung</h3>
-    <p>
-        Kümmert sich um Personalangelegenheiten, Dokumentation,
-        Dienstplanung und organisatorische Aufgaben.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Verwaltung</h3>
+            <p>
+                Kümmert sich um Personalangelegenheiten, Dokumentation,
+                Dienstplanung und organisatorische Aufgaben.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
+            </div>
+        </article>
 
-<article class="department">
-    <h3>Personenschutz</h3>
-    <p>
-        Zuständig für den Schutz und die Begleitung besonders
-        schutzbedürftiger Personen im Rahmen polizeilicher Aufträge.
-    </p>
-    <div class="leader">
-        <strong>Abteilungsleitung:</strong> Noch offen<br>
-        <strong>Stellvertretung:</strong> Noch offen
-    </div>
-</article>
+        <article class="department">
+            <h3>Personenschutz</h3>
+            <p>
+                Zuständig für den Schutz und die Begleitung besonders
+                schutzbedürftiger Personen im Rahmen polizeilicher Aufträge.
+            </p>
+            <div class="leader">
+                <strong>Abteilungsleitung:</strong> Noch offen<br>
+                <strong>Stellvertretung:</strong> Noch offen
             </div>
         </article>
 
@@ -342,14 +341,17 @@
         Die dargestellten Leitungspositionen sind zunächst Platzhalter.
         Die tatsächlichen Namen und Funktionen werden später ergänzt.
     </div>
+
 </main>
 
 <footer>
     <strong>POLIZEI NRP</strong><br>
     Sicherheit. Ordnung. Verantwortung.<br><br>
+
     <a href="impressum.html">Impressum</a>
     &nbsp; | &nbsp;
     <a href="datenschutz.html">Datenschutz</a>
+
     <br><br>
     © 2026 Polizei NRP – Rollenspielprojekt
 </footer>
