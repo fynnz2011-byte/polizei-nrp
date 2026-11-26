@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitarbeiterbereich | Polizei NRP</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b1424;
+    color: white;
+}
+
+header {
+    background: #101d32;
+    padding: 30px 20px;
+    text-align: center;
+    border-bottom: 2px solid #d5b66c;
+}
+
+header h1 {
+    margin: 0;
+    color: #d5b66c;
+    font-size: 30px;
+}
+
+header p {
+    color: #b8c2d3;
+    margin: 9px 0 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.back {
+    display: inline-block;
+    color: #d5b66c;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+.intro {
+    margin-bottom: 30px;
+}
+
+.intro h2 {
+    color: #d5b66c;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    color: #b8c2d3;
+    line-height: 1.6;
+}
+
+.section-title {
+    color: #d5b66c;
+    font-size: 20px;
+    margin: 35px 0 18px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    display: block;
+    background: #14243b;
+    border: 1px solid #263a58;
+    border-radius: 10px;
+    padding: 22px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.card:hover {
+    border-color: #d5b66c;
+    background: #192c47;
+    transform: translateY(-3px);
+}
+
+.card h3 {
+    color: #d5b66c;
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+.card p {
+    color: #b8c2d3;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+footer {
+    text-align: center;
+    color: #718096;
+    padding: 35px 15px;
+    font-size: 13px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Polizei NRP</h1>
+    <p>Interner Mitarbeiterbereich</p>
+</header>
+
+<div class="container">
+
+    <a class="back" href="../index.html">← Zur Hauptseite</a>
+
+    <div class="intro">
+        <h2>Willkommen im Mitarbeiterbereich</h2>
+        <p>
+            Dieser Bereich dient als zentrale Anlaufstelle für alle
+            Mitarbeiter der Polizei NRP. Hier findest du wichtige
+            Vorschriften, Gesetzestexte und interne Übersichten.
+        </p>
+    </div>
+
+    <h2 class="section-title">Dienstliche Grundlagen</h2>
+
+    <div class="grid">
+
+        <a class="card" href="dienstvorschriften.html">
+            <h3>Dienstvorschriften</h3>
+            <p>Interne Vorschriften, Verhaltensregeln und dienstliche Pflichten.</p>
+        </a>
+
+        <a class="card" href="stgb.html">
+            <h3>Strafgesetzbuch (StGB)</h3>
+            <p>Übersicht der Straftatbestände und zugehörigen Strafen.</p>
+        </a>
+
+        <a class="card" href="stvo.html">
+            <h3>Straßenverkehrsordnung (StVO)</h3>
+            <p>Verkehrsregeln, Ordnungswidrigkeiten und Bußgelder.</p>
+        </a>
+
+        <a class="card" href="waffengesetze.html">
+            <h3>Waffengesetze</h3>
+            <p>Übersicht der geltenden Waffenregelungen im RP.</p>
+        </a>
+
+    </div>
+
+    <h2 class="section-title">Interne Verwaltung</h2>
+
+    <div class="grid">
+
+        <a class="card" href="haftliste.html">
+            <h3>Haftbefehle</h3>
+            <p>Übersicht der eingetragenen Haftbefehle und ihres Bearbeitungsstands.</p>
+        </a>
+
+        <a class="card" href="dienstnummern.html">
+            <h3>Dienstnummernverzeichnis</h3>
+            <p>Dienstnummern, Namen und Dienstgrade aller eingetragenen Mitarbeiter.</p>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+    Polizei NRP | Interner Mitarbeiterbereich
+</footer>
+
+</body>
+</html>
