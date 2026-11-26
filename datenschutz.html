@@ -8,7 +8,11 @@
     <title>Datenschutz | Polizei NRP</title>
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: Arial, sans-serif;
@@ -28,12 +32,21 @@
             gap: 15px;
         }
 
-        header strong { font-size: 22px; }
-        header span { color: #D5B66C; }
+        header strong {
+            font-size: 22px;
+        }
+
+        header span {
+            color: #D5B66C;
+        }
 
         header a {
             color: white;
             text-decoration: none;
+        }
+
+        header a:hover {
+            color: #D5B66C;
         }
 
         main {
@@ -45,15 +58,58 @@
             line-height: 1.8;
         }
 
-        h1 { margin-bottom: 25px; }
-        h2 { margin-top: 30px; margin-bottom: 10px; }
-        p { color: #647084; }
+        h1 {
+            margin-bottom: 25px;
+            color: #101D32;
+        }
+
+        h2 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #101D32;
+            font-size: 20px;
+        }
+
+        p {
+            color: #647084;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            color: #647084;
+            margin: 10px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        a {
+            color: #8A6B2D;
+            overflow-wrap: anywhere;
+        }
 
         .notice {
-            margin-top: 30px;
+            margin-top: 25px;
             padding: 18px;
             background: #F5EEDC;
             border-left: 4px solid #D5B66C;
+            color: #594B30;
+        }
+
+        .notice strong {
+            color: #101D32;
+        }
+
+        .contact {
+            background: #F1F3F6;
+            padding: 18px;
+            margin-top: 12px;
+            border-left: 3px solid #D5B66C;
+        }
+
+        .contact p:last-child {
+            margin-bottom: 0;
         }
 
         footer {
@@ -63,10 +119,24 @@
             text-align: center;
         }
 
-        footer a { color: #D5B66C; text-decoration: none; }
+        footer a {
+            color: #D5B66C;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
 
         @media (max-width: 600px) {
-            main { margin: 25px 15px; padding: 25px; }
+            main {
+                margin: 25px 15px;
+                padding: 25px;
+            }
+
+            header {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -75,7 +145,11 @@
 
 <header>
     <strong style="display:flex; align-items:center; gap:10px;">
-        <img src="logo.jpg" alt="Polizei NRP Logo" style="width:30px; height:30px; object-fit:contain;">
+        <img
+            src="logo.jpg"
+            alt="Polizei NRP Logo"
+            style="width:30px; height:30px; object-fit:contain;"
+        >
         POLIZEI <span>NRP</span>
     </strong>
 
@@ -85,67 +159,342 @@
 </header>
 
 <main>
+
     <h1>Datenschutzerklärung</h1>
 
     <p>
         Der Schutz personenbezogener Daten ist uns wichtig.
         Auf dieser Seite informieren wir über die Verarbeitung
-        personenbezogener Daten im Zusammenhang mit diesem Projekt.
+        personenbezogener Daten im Zusammenhang mit der
+        Website des fiktiven NRP-Roleplay-Projekts.
     </p>
 
-    <h2>1. Verantwortlicher</h2>
+    <h2>1. Verantwortliche Stelle und Kontakt</h2>
+
     <p>
-        Verantwortlich für die Datenverarbeitung:<br>
-        [Name des Betreibers]<br>
-        [Kontaktadresse]<br>
-        [E-Mail-Adresse]
+        Die technische Verwaltung und Pflege der Website
+        erfolgt durch den Website-Betreiber.
+    </p>
+
+    <div class="contact">
+        <p>
+            <strong>Kontakt für Datenschutzanfragen:</strong>
+        </p>
+
+        <p>
+            E-Mail:
+            <a href="mailto:Fynnz2011@gmail.com">
+                Fynnz2011@gmail.com
+            </a>
+        </p>
+
+        <p>
+            Discord:
+            <a
+                href="https://discord.gg/RjedSg6nH"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                NRP Discord-Server
+            </a>
+        </p>
+    </div>
+
+    <p>
+        Die vollständigen Angaben zur datenschutzrechtlich
+        verantwortlichen Person müssen vor der Veröffentlichung
+        noch geklärt und ergänzt werden.
     </p>
 
     <h2>2. Hosting durch GitHub Pages</h2>
+
     <p>
         Diese Website wird über GitHub Pages bereitgestellt.
-        Beim Aufruf der Website können technisch erforderliche
-        Verbindungsdaten durch den Hostinganbieter verarbeitet werden.
-        Weitere Informationen findest du in den Datenschutzinformationen
-        von GitHub.
+        GitHub stellt die technische Infrastruktur für die
+        Veröffentlichung der HTML-, CSS- und Bilddateien bereit.
     </p>
 
-    <h2>3. Personenbezogene Daten</h2>
     <p>
-        Auf dieser Website werden derzeit keine eigenen
-        Kontakt- oder Bewerbungsformulare angeboten.
-        Bewerbungen erfolgen über unseren Discord-Server.
+        Beim Aufruf einer GitHub-Pages-Website wird die IP-Adresse
+        der Besucher laut GitHub aus Sicherheitsgründen
+        protokolliert und gespeichert.
     </p>
 
-    <h2>4. Externe Dienste und Links</h2>
     <p>
-        Unsere Website enthält einen Link zu Discord.
-        Wenn du diesen Link aufrufst, wechselst du zu einem
-        externen Dienst. Dort gelten die Datenschutzbestimmungen
-        des jeweiligen Anbieters.
+        Dabei können insbesondere folgende technische
+        Informationen verarbeitet werden:
     </p>
 
-    <h2>5. Deine Rechte</h2>
+    <ul>
+        <li>IP-Adresse des aufrufenden Geräts</li>
+        <li>Zeitpunkt des Zugriffs</li>
+        <li>aufgerufene Website beziehungsweise Unterseite</li>
+        <li>technische Verbindungsinformationen</li>
+    </ul>
+
     <p>
-        Betroffene Personen haben nach Maßgabe der geltenden
-        Datenschutzgesetze verschiedene Rechte, beispielsweise
-        Auskunft, Berichtigung und Löschung personenbezogener Daten.
+        Diese Verarbeitung erfolgt durch den Hostinganbieter.
+        Die Website-Verwaltung führt selbst keine Besucherstatistiken
+        und erstellt keine eigenen Besucherprofile.
     </p>
 
-    <h2>6. Änderungen</h2>
     <p>
-        Diese Datenschutzerklärung kann angepasst werden,
-        wenn sich die Website oder die Datenverarbeitung ändert.
+        Weitere Informationen:
+        <a
+            href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub-Datenschutzerklärung
+        </a>.
+    </p>
+
+    <h2>3. Nutzung der Website</h2>
+
+    <p>
+        Die Website ist öffentlich und ohne Anmeldung zugänglich.
+        Es werden keine Benutzerkonten, Registrierungen oder
+        öffentlichen Kontakt- und Bewerbungsformulare angeboten.
+    </p>
+
+    <p>
+        Besucher können die veröffentlichten Informationen
+        ansehen, ohne sich auf der Website anmelden zu müssen.
+    </p>
+
+    <p>
+        Die Website-Verwaltung speichert keine eigenen
+        Besucherprofile und betreibt keine eigenen
+        Analyse- oder Trackingwerkzeuge.
+    </p>
+
+    <h2>4. Roblox-Nutzernamen und Anzeigenamen</h2>
+
+    <p>
+        Im Rahmen des fiktiven Roleplay-Projekts können
+        Roblox-@Namen und Roblox-Anzeigenamen von
+        Projektmitgliedern auf der Website veröffentlicht werden.
+    </p>
+
+    <p>
+        Da diese Namen echten Roblox-Konten zugeordnet sein können,
+        behandeln wir sie als möglicherweise personenbezogene Daten.
+    </p>
+
+    <p>
+        Eine Veröffentlichung erfolgt ausschließlich nach
+        ausdrücklicher Zustimmung der jeweiligen Person.
+        Die Zustimmung wird über eine entsprechende
+        Discord-Nachricht eingeholt.
     </p>
 
     <div class="notice">
-        <strong>Wichtig:</strong>
-        Dies ist eine technische Vorlage und keine fertige,
-        rechtlich geprüfte Datenschutzerklärung.
-        Die tatsächlichen Hosting-, Protokollierungs- und
-        Drittanbieterprozesse müssen geprüft und korrekt
-        beschrieben werden, bevor die Seite öffentlich genutzt wird.
+        <strong>Regelung zur Veröffentlichung:</strong>
+
+        <ul>
+            <li>
+                <strong>Ja / Zustimmung:</strong>
+                Der Roblox-@Name und der Roblox-Anzeigename
+                dürfen auf der Website veröffentlicht werden.
+            </li>
+
+            <li>
+                <strong>Nein / Ablehnung:</strong>
+                Die Roblox-Daten werden nicht veröffentlicht.
+            </li>
+
+            <li>
+                <strong>Keine Abstimmung:</strong>
+                Ohne ausdrückliche Zustimmung erfolgt ebenfalls
+                keine Veröffentlichung.
+            </li>
+
+            <li>
+                <strong>Widerruf:</strong>
+                Eine erteilte Zustimmung kann jederzeit widerrufen
+                werden. Die betreffenden Angaben werden anschließend
+                von der Website entfernt.
+            </li>
+        </ul>
     </div>
+
+    <p>
+        Wenn keine Zustimmung vorliegt, werden die entsprechenden
+        Felder durch Platzhalter dargestellt. Dazu gehören
+        beispielsweise „@///“ und „///“.
+    </p>
+
+    <p>
+        Die fiktiven Dienstnamen, Dienstnummern und Dienstgrade
+        werden unabhängig von den Roblox-Nutzernamen innerhalb
+        des Roleplay-Projekts verwendet.
+    </p>
+
+    <p>
+        Zweck der Veröffentlichung ist ausschließlich die
+        Darstellung der fiktiven Organisationsstruktur und
+        der jeweiligen Funktionen innerhalb des Roleplays.
+    </p>
+
+    <p>
+        Die vorgesehene Rechtsgrundlage für die Veröffentlichung
+        der Roblox-Namen ist die Einwilligung gemäß
+        Artikel 6 Absatz 1 Buchstabe a DSGVO.
+    </p>
+
+    <h2>5. Discord und externe Verlinkungen</h2>
+
+    <p>
+        Die Website enthält einen normalen externen Link
+        zum Discord-Server des NRP-Projekts.
+    </p>
+
+    <p>
+        Beim bloßen Anzeigen der Website wird durch diesen Link
+        noch keine Verbindung zu Discord hergestellt.
+        Erst beim Anklicken wird der externe Dienst aufgerufen.
+    </p>
+
+    <p>
+        Discord wird außerdem zur Einholung und Dokumentation
+        der Zustimmung zur Veröffentlichung von Roblox-Namen
+        verwendet.
+    </p>
+
+    <p>
+        Dabei können Informationen wie Discord-Benutzernamen,
+        Reaktionen und die jeweilige Zustimmung innerhalb
+        des Discord-Servers verarbeitet werden.
+    </p>
+
+    <p>
+        Für die Verarbeitung durch Discord gelten die
+        Datenschutzbestimmungen des Anbieters:
+    </p>
+
+    <p>
+        <a
+            href="https://discord.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Discord-Datenschutzerklärung
+        </a>
+    </p>
+
+    <h2>6. Cookies und externe Inhalte</h2>
+
+    <p>
+        Nach der derzeit bekannten technischen Gestaltung
+        verwendet die Website keine eigenen Cookies,
+        keine externen Schriftarten und keine eingebetteten
+        Discord-Komponenten.
+    </p>
+
+    <p>
+        Als Schriftart wird Arial verwendet.
+    </p>
+
+    <p>
+        Die verwendeten Bilder, beispielsweise die Datei
+        „logo.jpg“, werden lokal von der Website geladen.
+        Es wird hierfür keine externe Google-Bildadresse
+        eingebunden.
+    </p>
+
+    <h2>7. Speicherdauer</h2>
+
+    <p>
+        Die veröffentlichten Roblox-Namen bleiben nur so lange
+        auf der Website, wie eine entsprechende Zustimmung
+        besteht und die Veröffentlichung für das Roleplay-Projekt
+        vorgesehen ist.
+    </p>
+
+    <p>
+        Nach einem Widerruf werden die betreffenden Angaben
+        von der Website entfernt.
+    </p>
+
+    <p>
+        Die Dokumentation der erteilten Zustimmungen wird nur
+        so lange aufbewahrt, wie sie für die Nachweisbarkeit
+        der Einwilligung erforderlich ist.
+    </p>
+
+    <p>
+        Für technische Zugriffsdaten, die durch GitHub verarbeitet
+        werden, gelten die Speicherregelungen des Hostinganbieters.
+    </p>
+
+    <h2>8. Rechte betroffener Personen</h2>
+
+    <p>
+        Betroffene Personen haben nach Maßgabe der geltenden
+        Datenschutzgesetze insbesondere folgende Rechte:
+    </p>
+
+    <ul>
+        <li>Recht auf Auskunft über gespeicherte personenbezogene Daten</li>
+        <li>Recht auf Berichtigung unrichtiger Daten</li>
+        <li>Recht auf Löschung personenbezogener Daten</li>
+        <li>Recht auf Einschränkung der Verarbeitung</li>
+        <li>Recht auf Datenübertragbarkeit, soweit anwendbar</li>
+        <li>Recht auf Widerruf einer erteilten Einwilligung</li>
+        <li>Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde</li>
+    </ul>
+
+    <p>
+        Datenschutzanfragen und Widerrufe können bevorzugt
+        über den NRP-Discord-Server oder alternativ über
+        die angegebene E-Mail-Adresse mitgeteilt werden.
+    </p>
+
+    <h2>9. Beschwerderecht</h2>
+
+    <p>
+        Betroffene Personen haben das Recht, sich bei einer
+        zuständigen Datenschutzaufsichtsbehörde zu beschweren,
+        wenn sie der Ansicht sind, dass die Verarbeitung
+        ihrer personenbezogenen Daten gegen geltendes
+        Datenschutzrecht verstößt.
+    </p>
+
+    <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+
+    <p>
+        Diese Datenschutzerklärung kann angepasst werden,
+        wenn sich die technische Gestaltung der Website,
+        die eingesetzten Dienste oder die Art der
+        Datenverarbeitung ändern.
+    </p>
+
+    <div class="notice">
+        <strong>Hinweis zum NRP-Projekt:</strong><br>
+        Polizei NRP ist ein fiktives Roleplay-Projekt.
+        Es handelt sich nicht um eine echte Polizeibehörde
+        oder staatliche Einrichtung.
+        Die dargestellten Dienstgrade, Funktionen und
+        Organisationsstrukturen dienen ausschließlich
+        dem Roleplay.
+    </div>
+
+    <div class="notice">
+        <strong>Wichtiger rechtlicher Hinweis:</strong><br>
+        Diese Datenschutzerklärung bildet die derzeit
+        beschriebenen Funktionen der Website ab.
+        Vor einer Veröffentlichung müssen insbesondere
+        die verantwortliche Stelle, die Rechtsgrundlagen,
+        die tatsächlichen Datenverarbeitungen und die
+        Angaben zu den eingesetzten Diensten geprüft werden.
+        Dieser Text ist keine rechtliche Prüfung oder Garantie
+        für die Einhaltung sämtlicher Datenschutzpflichten.
+    </div>
+
+    <p style="margin-top:25px; font-size:13px;">
+        Stand: 26. November 2026
+    </p>
+
 </main>
 
 <footer>
@@ -156,7 +505,7 @@
         Startseite
     </a>
     &nbsp; | &nbsp;
-    <a href="impressum.html">Impressum</a>
+    <a href="impressum.html">Betreiberinformationen</a>
 </footer>
 
 </body>
