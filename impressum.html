@@ -2,552 +2,303 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dienstgrade | Polizei NRP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betreiberinformationen | Polizei NRP</title>
 
-<style>
-* { box-sizing: border-box; }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Lila Gestaltung der Innenminister-Karte */
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1424;
+            color: #e8edf5;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
 
-.rank-card.minister-card {
-    border: 1px solid #B99A59;
-    background: linear-gradient(145deg, #38244D, #21152F);
-}
+        header {
+            background: #101e34;
+            border-bottom: 2px solid #b99a59;
+            padding: 25px 20px;
+            text-align: center;
+        }
 
-.rank-card.minister-card:hover {
-    border-color: #F1D58B;
-    background: linear-gradient(145deg, #49305F, #2B1B3C);
-}
+        header h1 {
+            color: #d7b76b;
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
 
-.rank-card.minister-card h3,
-.rank-card.minister-card p {
-    color: #E8C875;
-}
-    
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #071426;
-    color: #F1F3F6;
-}
+        header p {
+            color: #aab6c8;
+            margin-top: 5px;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
 
-header {
-    background: #09182B;
-    padding: 16px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 15px;
-    border-bottom: 2px solid #D5B66C;
-}
+        nav {
+            background: #14243c;
+            padding: 13px;
+            text-align: center;
+            border-bottom: 1px solid #293b55;
+        }
 
-header strong {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 20px;
-}
+        nav a {
+            color: #d7b76b;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-header img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-}
+        nav a:hover {
+            color: white;
+        }
 
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
+        main {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
 
-nav a {
-    color: #F1F3F6;
-    text-decoration: none;
-    font-size: 14px;
-}
+        .page-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
 
-nav a:hover { color: #D5B66C; }
+        .page-title h2 {
+            color: #d7b76b;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
 
-.hero {
-    text-align: center;
-    padding: 45px 20px 30px;
-}
+        .page-title p {
+            color: #9eacc0;
+        }
 
-.hero h1 {
-    font-size: 34px;
-    color: #D5B66C;
-    margin-bottom: 10px;
-}
+        .notice {
+            background: #182b43;
+            border: 1px solid #b99a59;
+            border-left: 4px solid #d7b76b;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 25px;
+            color: #dce5f1;
+        }
 
-.hero p { color: #BFC9D8; }
+        .notice strong {
+            color: #e5c779;
+        }
 
-main {
-    max-width: 1250px;
-    margin: auto;
-    padding: 20px;
-}
+        .section {
+            background: #111f34;
+            border: 1px solid #293b55;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
 
-.rank-group {
-    margin: 30px 0 45px;
-}
+        .section h3 {
+            color: #d7b76b;
+            font-size: 19px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #34455d;
+            padding-bottom: 10px;
+        }
 
-.group-title {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    color: #E6C36F;
-    font-size: 23px;
-    text-align: center;
-}
+        .section p {
+            color: #c2ccda;
+            margin-bottom: 10px;
+        }
 
-.group-title::before,
-.group-title::after {
-    content: "";
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #D5B66C);
-    flex: 1;
-}
+        .role {
+            margin-bottom: 18px;
+        }
 
-.group-title::after {
-    background: linear-gradient(90deg, #D5B66C, transparent);
-}
+        .role:last-child {
+            margin-bottom: 0;
+        }
 
-.ranks {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
-    gap: 18px;
-}
+        .role strong {
+            display: block;
+            color: #e4c477;
+            margin-bottom: 3px;
+        }
 
-.rank-card {
-    border: 1px solid #263B56;
-    background: linear-gradient(145deg, #10233D, #0B192D);
-    border-radius: 10px;
-    padding: 20px 10px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    font-family: inherit;
-    transition: .2s;
-}
+        .discord-link {
+            display: inline-block;
+            margin-top: 10px;
+            background: #263d5b;
+            border: 1px solid #b99a59;
+            border-radius: 6px;
+            padding: 11px 18px;
+            color: #e5c779;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
 
-.rank-card:hover {
-    border-color: #D5B66C;
-    transform: translateY(-4px);
-    background: #172B45;
-}
+        .discord-link:hover {
+            background: #344f72;
+            color: white;
+        }
 
-.rank-card h3 {
-    font-size: 16px;
-    margin: 12px 0 5px;
-    color: #F1F3F6;
-}
+        .disclaimer {
+            color: #9eacc0;
+            font-size: 13px;
+            margin-top: 15px;
+        }
 
-.rank-card p {
-    color: #D5B66C;
-    font-size: 13px;
-    margin: 0;
-}
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            border-top: 1px solid #293b55;
+            background: #101e34;
+            color: #8493a8;
+            font-size: 13px;
+            margin-top: 60px;
+        }
 
-/* Besonderes Rangabzeichen Innenminister */
-
-.epaulette.minister {
-    background: linear-gradient(120deg, #E8C875, #8E6A32, #F4DFA0);
-    filter: drop-shadow(0 3px 8px rgba(20, 8, 35, .9));
-}
-
-.epaulette.minister .epaulette-inner {
-    background: linear-gradient(145deg, #513568, #21152F 70%, #160E20);
-}
-
-.epaulette.minister .pin {
-    background: radial-gradient(circle at 35% 30%, #FFF3C9, #E8C875 65%, #9B7130);
-    border-color: #FFF0B2;
-}
-
-.epaulette.minister .symbols {
-    margin-top: 24px;
-    gap: 2px;
-    color: #F1D58B;
-    text-shadow: 0 1px 4px #12091B;
-}
-
-.minister-emblem {
-    font-size: 39px;
-    line-height: 42px;
-    color: #F1D58B;
-}
-
-.minister-star {
-    font-size: 27px;
-    line-height: 27px;
-    color: #FFF0B2;
-}
-
-/* Rangabzeichen */
-
-.epaulette {
-    width: 78px;
-    height: 137px;
-    margin: 0 auto;
-    position: relative;
-    background: linear-gradient(120deg, #E2BC62, #98702D, #E9CA79);
-    clip-path: polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%);
-    filter: drop-shadow(0 3px 5px #000);
-}
-
-.epaulette-inner {
-    position: absolute;
-    inset: 3px;
-    background: linear-gradient(145deg, #142B49, #071426);
-    clip-path: polygon(50% 0, 100% 24%, 100% 100%, 0 100%, 0 24%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pin {
-    position: absolute;
-    top: 13px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #FFF0B2, #D5A83D 65%, #80591E);
-    border: 1px solid #F4D88D;
-    z-index: 2;
-}
-
-.symbols {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: #E8C36B;
-    text-shadow: 0 1px 3px #8A641F;
-}
-
-.star {
-    font-size: 25px;
-    line-height: 22px;
-}
-
-.bar {
-    width: 34px;
-    height: 6px;
-    border-radius: 1px;
-    background: linear-gradient(#FFF0B0, #D5A83D 60%, #9A702B);
-    margin: 2px 0;
-}
-
-.book {
-    font-size: 29px;
-    line-height: 30px;
-}
-
-.laurel {
-    font-size: 34px;
-    line-height: 32px;
-}
-
-/* Größere Ansicht */
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 10;
-    background: rgba(0,0,0,.82);
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.modal.show { display: flex; }
-
-.modal-content {
-    background: #10233D;
-    border: 1px solid #D5B66C;
-    border-radius: 14px;
-    width: 100%;
-    max-width: 380px;
-    padding: 30px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 15px 50px #000;
-}
-
-.modal-content h2 {
-    color: #D5B66C;
-    margin-top: 5px;
-}
-
-.modal-content p { color: #C5CFDC; }
-
-.modal .epaulette {
-    width: 135px;
-    height: 235px;
-    margin: 25px auto;
-}
-
-.modal .pin {
-    width: 22px;
-    height: 22px;
-    top: 22px;
-}
-
-.modal .symbols { margin-top: 42px; }
-.modal .star { font-size: 42px; line-height: 39px; }
-.modal .bar { width: 58px; height: 10px; }
-.modal .book { font-size: 48px; line-height: 50px; }
-.modal .laurel { font-size: 57px; line-height: 55px; }
-
-.modal .minister-emblem {
-    font-size: 65px;
-    line-height: 70px;
-}
-
-.modal .minister-star {
-    font-size: 43px;
-    line-height: 45px;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    border: none;
-    background: none;
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-}
-
-.close:hover { color: #D5B66C; }
-
-.hint {
-    text-align: center;
-    color: #AAB8CA;
-    font-size: 13px;
-    margin-top: 25px;
-}
-
-footer {
-    text-align: center;
-    padding: 25px;
-    margin-top: 45px;
-    background: #09182B;
-    color: #AEB8C7;
-    font-size: 13px;
-}
-
-@media (max-width: 600px) {
-    header { justify-content: center; }
-    nav { justify-content: center; }
-    .hero h1 { font-size: 27px; }
-    .ranks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-</style>
+        footer a {
+            color: #d7b76b;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <strong>
-        <img src="logo.jpg" alt="Polizei NRP Logo">
-        Polizei NRP
-    </strong>
-
-    <nav>
-        <a href="https://fynnz2011-byte.github.io/polizei-nrp/">Startseite</a>
-        <a href="organisation.html">Organisation</a>
-        <a href="dienstgrade.html">Dienstgrade</a>
-        <a href="nachrichten.html">Nachrichten</a>
-        <a href="karriere.html">Karriere</a>
-    </nav>
+    <h1>POLIZEI NRP</h1>
+    <p>NIEDERRHEIN ROLEPLAY</p>
 </header>
 
-<section class="hero">
-    <h1>Dienstgrade der Polizei NRP</h1>
-    <p>Sicherheit. Ordnung. Verantwortung.</p>
-</section>
+<nav>
+    <a href="https://fynnz2011-byte.github.io/polizei-nrp/">
+        Zurück zur Startseite
+    </a>
+</nav>
 
-<main id="rank-container"></main>
+<main>
 
-<p class="hint">Klicke auf einen Dienstgrad, um das Rangabzeichen zu vergrößern.</p>
-
-<div class="modal" id="rankModal" onclick="closeModal(event)">
-    <div class="modal-content">
-        <button class="close" onclick="closeModal()" aria-label="Schließen">&times;</button>
-        <h2 id="modalTitle"></h2>
-        <div id="modalBadge"></div>
-        <p id="modalAbbreviation"></p>
-        <p>Rangabzeichen der Polizei NRP</p>
+    <div class="page-title">
+        <h2>Betreiberinformationen</h2>
+        <p>Informationen über das NRP-Projekt und dessen Verwaltung</p>
     </div>
-</div>
+
+    <div class="notice">
+        <strong>Wichtiger Hinweis:</strong><br>
+        Polizei NRP ist eine ausschließlich fiktive Organisation
+        innerhalb eines Roleplay-Projekts. Es handelt sich weder
+        um eine echte Polizeibehörde noch um eine staatliche
+        Einrichtung.
+    </div>
+
+    <section class="section">
+        <h3>Projektinformationen</h3>
+
+        <p>
+            <strong>Projektname:</strong> Polizei NRP
+        </p>
+
+        <p>
+            <strong>Projektart:</strong> Fiktives Roleplay-Projekt
+        </p>
+
+        <p>
+            <strong>Webseite:</strong> Polizei NRP – Informationsportal
+        </p>
+
+        <p>
+            Die Website dient der Darstellung von Informationen,
+            Organisationsstrukturen, Dienstgraden und weiteren
+            Inhalten des fiktiven Roleplay-Projekts.
+        </p>
+    </section>
+
+    <section class="section">
+        <h3>Projektleitung und Verwaltung</h3>
+
+        <div class="role">
+            <strong>Dussel</strong>
+            Betreiber des Roleplay-Servers und Innenminister
+            innerhalb des fiktiven NRP-Projekts.
+        </div>
+
+        <div class="role">
+            <strong>Website-Verwaltung</strong>
+            Technische Erstellung, Pflege und Verwaltung der
+            offiziellen NRP-Website.
+        </div>
+
+        <p class="disclaimer">
+            Die inhaltliche Gestaltung und Veröffentlichung
+            von Informationen erfolgt in gemeinsamer Abstimmung.
+        </p>
+    </section>
+
+    <section class="section">
+        <h3>Kontakt</h3>
+
+        <p>
+            Bei Fragen, Anregungen oder Anliegen zum NRP-Projekt
+            kann der offizielle Discord-Server genutzt werden.
+        </p>
+
+        <a class="discord-link"
+           href="https://discord.gg/RjedSg6nH"
+           target="_blank"
+           rel="noopener noreferrer">
+            NRP Discord-Server
+        </a>
+    </section>
+
+    <section class="section">
+        <h3>Abgrenzung zur Realität</h3>
+
+        <p>
+            Sämtliche dargestellten Behörden, Dienstgrade,
+            Vorschriften, Personen und Organisationsstrukturen
+            stehen im Zusammenhang mit dem fiktiven Roleplay-Projekt.
+        </p>
+
+        <p>
+            Eine Verbindung zu realen staatlichen Behörden,
+            Polizeidienststellen oder offiziellen Institutionen
+            besteht nicht.
+        </p>
+    </section>
+
+    <section class="section">
+        <h3>Rechtlicher Hinweis</h3>
+
+        <p>
+            Diese Seite enthält allgemeine Projekt- und
+            Kontaktinformationen. Sie ersetzt kein gesetzlich
+            erforderliches Impressum.
+        </p>
+
+        <p>
+            Falls für dieses Internetangebot gesetzliche
+            Anbieterkennzeichnungspflichten gelten, müssen
+            die dafür erforderlichen Angaben gesondert ergänzt
+            und überprüft werden.
+        </p>
+    </section>
+
+</main>
 
 <footer>
-    Polizei NRP · Sicherheit. Ordnung. Verantwortung.
+    <p>© Polizei NRP – Fiktives Roleplay-Projekt</p>
+    <p style="margin-top: 8px;">
+        <a href="https://fynnz2011-byte.github.io/polizei-nrp/">
+            Startseite
+        </a>
+    </p>
 </footer>
-
-<script>
-const groups = [
-    {
-        name: "Staatliche Führung",
-        ranks: [
-            ["IM", "Innenminister", "minister", 0, 0]
-        ]
-    },
-    {
-        name: "Höchster Dienst",
-        ranks: [
-            ["LPP", "Landespolizeipräsident", "laurel", 1, 0],
-            ["LPVP", "Landespolizeivizepräsident", "laurel", 2, 2],
-            ["PP", "Polizeipräsident", "star", 3, 0],
-            ["PVP", "Polizeivizepräsident", "star", 2, 0]
-        ]
-    },
-    {
-        name: "Höhere Leitung",
-        ranks: [
-            ["LPD", "Leitender Polizeidirektor", "bar", 0, 3],
-            ["PD", "Polizei Direktor", "bar", 0, 2],
-            ["POR", "Polizeioberrat", "bar", 0, 1],
-            ["PR", "Polizeirat", "star", 1, 0],
-            ["PRA", "Polizeiratanwärter", "star", 1, 1]
-        ]
-    },
-    {
-        name: "Ausbilder",
-        ranks: [
-            ["LAB", "LTD. Ausbilder", "book", 0, 2],
-            ["T-LAB", "Test LTD. Ausbilder", "book", 0, 1],
-            ["AB", "Ausbilder", "book", 0, 0],
-            ["T-AB", "Test Ausbilder", "book", 0, 0]
-        ]
-    },
-    {
-        name: "Gehobener Dienst",
-        ranks: [
-            ["EPHK", "Erster Polizeihauptkommissar", "star", 3, 0],
-            ["PHK", "Polizeihauptkommissar", "star", 2, 0],
-            ["POK", "Polizeioberkommissar", "star", 1, 0],
-            ["PK", "Polizeikommissar", "bar", 0, 1],
-            ["PKA", "Polizeikommissaranwärter", "star", 1, 1]
-        ]
-    },
-    {
-        name: "Kleiner Dienst",
-        ranks: [
-            ["PHM", "Polizeihauptmeister", "bar", 0, 3],
-            ["POM", "Polizeiobermeister", "bar", 0, 2],
-            ["PM", "Polizeimeister", "bar", 0, 1],
-            ["PMA", "Polizeimeisteranwärter", "star", 1, 1],
-            ["PAW", "Polizeianwärter", "star", 1, 0]
-        ]
-    }
-];
-
-function makeBadge(type, stars, bars) {
-    let symbols = "";
-    const badgeClass = type === "minister"
-        ? "epaulette minister"
-        : "epaulette";
-
-    if (type === "minister") {
-        symbols = '<div class="minister-emblem">✦</div><div class="minister-star">★</div>';
-    } else if (type === "laurel") {
-        symbols = '<div class="laurel">❧</div>';
-        if (stars > 1) symbols += '<div class="star">★</div>';
-    } else if (type === "book") {
-        symbols = '<div class="book">▱</div>';
-        if (bars > 0) {
-            for (let i = 0; i < bars; i++) symbols += '<div class="bar"></div>';
-        }
-    } else if (type === "star") {
-        for (let i = 0; i < stars; i++) {
-            symbols += '<div class="star">★</div>';
-        }
-        for (let i = 0; i < bars; i++) {
-            symbols += '<div class="bar"></div>';
-        }
-    } else {
-        for (let i = 0; i < bars; i++) {
-            symbols += '<div class="bar"></div>';
-        }
-    }
-
-    return `
-        <div class="${badgeClass}">
-            <div class="epaulette-inner">
-                <div class="pin"></div>
-                <div class="symbols">${symbols}</div>
-            </div>
-        </div>`;
-}
-
-const container = document.getElementById("rank-container");
-
-groups.forEach(group => {
-    const section = document.createElement("section");
-    section.className = "rank-group";
-
-    const title = document.createElement("h2");
-    title.className = "group-title";
-    title.textContent = group.name;
-    section.appendChild(title);
-
-    const ranks = document.createElement("div");
-    ranks.className = "ranks";
-
-    group.ranks.forEach(rank => {
-        const [abbr, name, type, stars, bars] = rank;
-
-        const card = document.createElement("button");
-        card.className = type === "minister"
-            ? "rank-card minister-card"
-            : "rank-card";
-        card.type = "button";
-        card.innerHTML = `
-            ${makeBadge(type, stars, bars)}
-            <h3>${abbr}</h3>
-            <p>${name}</p>
-        `;
-
-        card.addEventListener("click", () => {
-            document.getElementById("modalTitle").textContent = name;
-            document.getElementById("modalAbbreviation").textContent = abbr;
-            document.getElementById("modalBadge").innerHTML =
-                makeBadge(type, stars, bars);
-            document.getElementById("rankModal").classList.add("show");
-        });
-
-        ranks.appendChild(card);
-    });
-
-    section.appendChild(ranks);
-    container.appendChild(section);
-});
-
-function closeModal(event) {
-    if (!event || event.target.id === "rankModal" ||
-        event.target.classList.contains("close")) {
-        document.getElementById("rankModal").classList.remove("show");
-    }
-}
-
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        document.getElementById("rankModal").classList.remove("show");
-    }
-});
-</script>
 
 </body>
 </html>
