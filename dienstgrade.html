@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071426">
 <title>Dienstgrade | Polizei NRP</title>
 
 <style>
@@ -135,6 +136,23 @@ main {
     margin: 0;
 }
 
+/* LILA SONDERGESTALTUNG INNENMINISTER */
+
+.rank-card.minister-card {
+    border: 1px solid #B99A59;
+    background: linear-gradient(145deg, #38244D, #21152F);
+}
+
+.rank-card.minister-card:hover {
+    border-color: #F1D58B;
+    background: linear-gradient(145deg, #49305F, #2B1B3C);
+}
+
+.rank-card.minister-card h3,
+.rank-card.minister-card p {
+    color: #E8C875;
+}
+
 /* Besonderes Rangabzeichen Innenminister */
 
 .epaulette.minister {
@@ -239,7 +257,7 @@ main {
     line-height: 32px;
 }
 
-/* Größere Ansicht */
+/* Vergrößerungsfenster */
 
 .modal {
     display: none;
@@ -439,6 +457,7 @@ const groups = [
 
 function makeBadge(type, stars, bars) {
     let symbols = "";
+
     const badgeClass = type === "minister"
         ? "epaulette minister"
         : "epaulette";
@@ -451,7 +470,9 @@ function makeBadge(type, stars, bars) {
     } else if (type === "book") {
         symbols = '<div class="book">▱</div>';
         if (bars > 0) {
-            for (let i = 0; i < bars; i++) symbols += '<div class="bar"></div>';
+            for (let i = 0; i < bars; i++) {
+                symbols += '<div class="bar"></div>';
+            }
         }
     } else if (type === "star") {
         for (let i = 0; i < stars; i++) {
@@ -493,10 +514,13 @@ groups.forEach(group => {
         const [abbr, name, type, stars, bars] = rank;
 
         const card = document.createElement("button");
+
         card.className = type === "minister"
             ? "rank-card minister-card"
             : "rank-card";
+
         card.type = "button";
+
         card.innerHTML = `
             ${makeBadge(type, stars, bars)}
             <h3>${abbr}</h3>
@@ -506,8 +530,10 @@ groups.forEach(group => {
         card.addEventListener("click", () => {
             document.getElementById("modalTitle").textContent = name;
             document.getElementById("modalAbbreviation").textContent = abbr;
+
             document.getElementById("modalBadge").innerHTML =
                 makeBadge(type, stars, bars);
+
             document.getElementById("rankModal").classList.add("show");
         });
 
@@ -519,8 +545,11 @@ groups.forEach(group => {
 });
 
 function closeModal(event) {
-    if (!event || event.target.id === "rankModal" ||
-        event.target.classList.contains("close")) {
+    if (
+        !event ||
+        event.target.id === "rankModal" ||
+        event.target.classList.contains("close")
+    ) {
         document.getElementById("rankModal").classList.remove("show");
     }
 }
